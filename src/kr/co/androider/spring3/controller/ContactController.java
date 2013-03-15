@@ -21,7 +21,7 @@ public class ContactController extends SqlSessionDaoSupport {
         logger.info("console - debug level /contact!");
         
         AppDao appDao = getSqlSession().getMapper(AppDao.class);
-        List<AppBean> list = appDao.retrieveApp();
+        List<AppBean> list = appDao.retrieveApp("com.lge.lglink.group", "Link Group");
         for (int i = 0; i < list.size(); i++) {
             logger.debug(list.get(i).getAppId());
             logger.debug(list.get(i).getAppPkgName());

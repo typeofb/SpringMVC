@@ -11,9 +11,9 @@
 		<result property="appSize" column ="APP_SIZE"/>
 	</resultMap>
 
-	<select id="retrieveApp" parameterType="String" resultMap="appResult">
+	<select id="retrieveApp" parameterType="map" resultMap="appResult">
 		<![CDATA[
-		SELECT APP_ID, APP_PKG_NAME, APP_SIZE FROM TB_CPM_APP_BAS WHERE APP_ID IN ('CASA1000000000989', 'CASA1000000000990')
+		SELECT APP_ID, APP_PKG_NAME, APP_SIZE FROM TB_CPM_APP_BAS WHERE APP_PKG_NAME = #{appPkgName} AND APP_NAME = #{appName}
 		]]>
 	</select>
 

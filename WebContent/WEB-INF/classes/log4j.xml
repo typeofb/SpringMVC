@@ -11,7 +11,7 @@
 
 	<!-- 파일로 출력하는 형태를 정의함 -->
 	<appender name="FILE" class="org.apache.log4j.FileAppender">
-		<param name="File" value="C:/TalkOn/logs/debug.log" />
+		<param name="File" value="C:/debug.log" />
 		<param name="Append" value="true" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%d{HH:mm:ss.SSS}] %-5p %C{1}.%M(%F:%L) - %m%n" />

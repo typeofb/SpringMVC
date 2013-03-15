@@ -9,6 +9,7 @@ public class HelloWorldController {
 
 	@RequestMapping("/hello")
 	public ModelAndView helloWorld() {
+	    
 		System.out.println("log - helloWorld");
 		String message = "Hello World, Spring 3.0!";
 		System.out.println(message);
