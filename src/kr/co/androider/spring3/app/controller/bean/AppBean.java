@@ -1,4 +1,4 @@
-package kr.co.androider.spring3.controller.app.bean;
+package kr.co.androider.spring3.app.controller.bean;
 
 public class AppBean {
     

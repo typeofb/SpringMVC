@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace에 interface로 정의된 DAO를 정확히 명시해주어야 한다 -->
-<mapper namespace="kr.co.androider.spring3.controller.app.dao.AppDao">
+<mapper namespace="kr.co.androider.spring3.app.controller.dao.AppDao">
 
 	<resultMap id="appResult" type="AppBean">
 		<result property="appId" column ="APP_ID"/>

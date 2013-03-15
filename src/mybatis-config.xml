@@ -9,7 +9,7 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="kr.co.androider.spring3.controller.app.bean.AppBean" alias="AppBean"/>
+		<typeAlias type="kr.co.androider.spring3.app.controller.bean.AppBean" alias="AppBean"/>
 	</typeAliases>
 	
 	<mappers>

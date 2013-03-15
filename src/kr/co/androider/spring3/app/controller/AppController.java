@@ -1,14 +1,12 @@
-package kr.co.androider.spring3.controller.app;
+package kr.co.androider.spring3.app.controller;
 
 import java.util.List;
 
-import kr.co.androider.spring3.controller.app.bean.AppBean;
-import kr.co.androider.spring3.controller.app.dao.AppDao;
-import kr.co.androider.spring3.controller.app.service.IAppService;
+import kr.co.androider.spring3.app.controller.bean.AppBean;
+import kr.co.androider.spring3.app.controller.dao.AppDao;
 
 import org.apache.log4j.Logger;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

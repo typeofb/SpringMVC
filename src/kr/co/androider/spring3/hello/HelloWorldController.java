@@ -1,4 +1,4 @@
-package kr.co.androider.spring3.controller.hello;
+package kr.co.androider.spring3.hello;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
