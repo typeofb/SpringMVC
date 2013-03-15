@@ -9,10 +9,10 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="kr.co.androider.spring3.controller.bean.AppBean" alias="AppBean"/>
+		<typeAlias type="kr.co.androider.spring3.controller.app.bean.AppBean" alias="AppBean"/>
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="/kr/co/androider/spring3/controller/dao/retrieveSql.xml" />
+		<mapper resource="/kr/co/androider/spring3/retrieveSql.xml" />
 	</mappers>
 </configuration>
