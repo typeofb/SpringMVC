@@ -9,5 +9,6 @@
 <body>
 	<a href="hello.do">Say Hello</a><br />
 	<a href="app.do">Retrieve App</a><br />
+	<a href="contact.do">Contact</a><br />
 </body>
 </html>
