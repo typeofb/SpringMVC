@@ -17,7 +17,7 @@ public class AppController extends SqlSessionDaoSupport {
     private Logger logger = Logger.getLogger(getClass());
     
     @RequestMapping("/app")
-    public ModelAndView contacts() {
+    public ModelAndView app() {
         logger.info("console - debug level /app!");
         
         AppDao appDao = getSqlSession().getMapper(AppDao.class);
