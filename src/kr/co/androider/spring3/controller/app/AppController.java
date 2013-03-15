@@ -18,12 +18,9 @@ public class AppController extends SqlSessionDaoSupport {
     
     private Logger logger = Logger.getLogger(getClass());
     
-    @Autowired
-    private IAppService iAppService;
-    
-    @RequestMapping("/contact")
+    @RequestMapping("/app")
     public ModelAndView contacts() {
-        logger.info("console - debug level /contact!");
+        logger.info("console - debug level /app!");
         
         AppDao appDao = getSqlSession().getMapper(AppDao.class);
         List<AppBean> list = appDao.retrieveApp("com.lge.lglink.group", "Link Group");
@@ -34,7 +31,7 @@ public class AppController extends SqlSessionDaoSupport {
         }
         
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("contact");
+        mv.setViewName("app");
         mv.addObject("msg", list.get(0).getAppPkgName());
 
         return mv;
