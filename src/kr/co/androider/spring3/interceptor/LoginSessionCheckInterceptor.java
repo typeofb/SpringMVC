@@ -16,5 +16,6 @@ public class LoginSessionCheckInterceptor extends HandlerInterceptorAdapter {
         logger.debug("##### interceptor #####");
         
         return true;
+        
     }
 }
