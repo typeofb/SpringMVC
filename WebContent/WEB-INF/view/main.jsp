@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>www.androider.co.kr</title>
+<title>Spring 3.0 MVC</title>
 </head>
 <body>
 	<a href="logout.do">Logout</a><br />
-	${message}
+	<a href="hello.do">Say Hello</a><br />
+	<a href="app.do">Retrieve App</a><br />
+	<a href="contact.do">Contact</a><br />
 </body>
 </html>

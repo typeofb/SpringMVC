@@ -7,6 +7,7 @@
 <title>www.androider.co.kr</title>
 </head>
 <body>
+	<a href="logout.do">Logout</a><br />
 	${msg}
 </body>
 </html>
