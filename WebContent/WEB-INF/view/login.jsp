@@ -5,10 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
+<script type="text/javascript">
+function fnSubmit() {
+	var x = document.forms["myForm"]["username"].value;
+	if (x == null || x == "") {
+		alert("Username must be filled out");
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 	<h2>Login</h2>
-	<form method="post" action="login.do">
+	<form name="myForm" method="post" action="login.do" onsubmit="return fnSubmit()">
 		<table>
 			<tr>
 				<td><label>Username</label></td>
