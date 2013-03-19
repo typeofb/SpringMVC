@@ -1,5 +1,6 @@
 package kr.co.androider.spring3.interceptor;
 
+import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ public class LoginSessionCheckInterceptor extends HandlerInterceptorAdapter {
     
     private Logger logger = Logger.getLogger(getClass());
 
+    @Override
     public boolean preHandle(HttpServletRequest request,
             HttpServletResponse response, Object handler) throws Exception{
         
@@ -31,9 +33,15 @@ public class LoginSessionCheckInterceptor extends HandlerInterceptorAdapter {
             return true;
         else {
             HttpSession session = request.getSession();
-            if (session.getAttribute("token") == null)
+            if (session.getAttribute("token") == null) {
+                response.setContentType("text/html; charset=utf-8");
+                PrintWriter out = response.getWriter();
+                out.println("<script>");
+                out.println("alert('You are not logged in. Please Log In');");
+                out.println("location.href='" + request.getContextPath() + "';");
+                out.println("</script>");
                 return false;
-            else return true;
+            } else return true;
         }
     }
 }

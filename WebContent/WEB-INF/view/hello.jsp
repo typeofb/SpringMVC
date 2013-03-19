@@ -7,6 +7,7 @@
 <title>www.androider.co.kr</title>
 </head>
 <body>
+	<div><%=request.getSession().getAttribute("token")%></div>
 	<a href="logout.do">Logout</a><br />
 	${message}
 </body>
