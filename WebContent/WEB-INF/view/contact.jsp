@@ -8,8 +8,6 @@
 <title>Spring 3 MVC Series - Contact Manager</title>
 </head>
 <body>
-	<div><%=request.getSession().getAttribute("token")%></div>
-	<a href="logout.do">Logout</a><br />
 	<h2>Contact Manager</h2>
 	<form:form method="post" action="addContact.do">
 		<table>

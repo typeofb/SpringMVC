@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>www.androider.co.kr</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<div>hello</div>
+	<div>copyrightⓒ 2013 All rights reserved by Shin Hyeon-Ho</div>
 </body>
 </html>
