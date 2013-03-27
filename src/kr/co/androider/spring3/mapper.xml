@@ -16,5 +16,24 @@
 		SELECT APP_ID, APP_PKG_NAME, APP_SIZE FROM TB_CPM_APP_BAS WHERE APP_PKG_NAME = #{appPkgName} AND APP_NAME = #{appName}
 		]]>
 	</select>
+	
+	<insert id="createApp" parameterType="kr.co.androider.spring3.app.controller.bean.AppBean">
+		INSERT INTO TB_CPM_APP_BAS
+		(
+			APP_ID,
+			APP_NAME,
+			APP_PKG_NAME,
+			APP_VER_CODE,
+			APP_VER_NAME,
+			USE_FLAG,
+			GEN_USR_ID,
+			GEN_DATE,
+			LAST_CHG_USR_ID,
+			LAST_CHG_DATE
+		) VALUES (
+			#{appId}, #{appName}, #{appPkgName}, #{appVerCode}, #{appVerName}, 
+			#{useFlag}, #{genUsrId}, SYSDATE, #{lastChgUsrId}, SYSDATE
+		)
+    </insert>
 
 </mapper>
