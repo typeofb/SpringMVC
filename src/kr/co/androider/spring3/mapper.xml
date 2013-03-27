@@ -18,8 +18,7 @@
 	</select>
 	
 	<insert id="createApp" parameterType="kr.co.androider.spring3.app.controller.bean.AppBean">
-		INSERT INTO TB_CPM_APP_BAS
-		(
+		INSERT INTO TB_CPM_APP_BAS (
 			APP_ID,
 			APP_NAME,
 			APP_PKG_NAME,
