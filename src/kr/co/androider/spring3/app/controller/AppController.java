@@ -1,5 +1,7 @@
 package kr.co.androider.spring3.app.controller;
 
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import kr.co.androider.spring3.app.controller.bean.AppBean;
@@ -20,8 +22,12 @@ public class AppController extends SqlSessionDaoSupport {
     public ModelAndView app() {
         logger.info("console - debug level /app!");
         
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("appPkgName", "com.lge.lglink.group");
+        map.put("appName", "Link Group");
+        
         AppDao appDao = getSqlSession().getMapper(AppDao.class);
-        List<AppBean> list = appDao.retrieveApp("com.lge.lglink.group", "Link Group");
+        List<AppBean> list = appDao.retrieveApp(map);
         for (int i = 0; i < list.size(); i++) {
             logger.debug(list.get(i).getAppId());
             logger.debug(list.get(i).getAppPkgName());

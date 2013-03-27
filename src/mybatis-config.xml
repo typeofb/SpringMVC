@@ -13,6 +13,6 @@
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="/kr/co/androider/spring3/retrieveSql.xml" />
+		<mapper resource="/kr/co/androider/spring3/mapper.xml" />
 	</mappers>
 </configuration>
