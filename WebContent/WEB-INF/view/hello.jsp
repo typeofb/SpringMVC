@@ -5,8 +5,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>www.androider.co.kr</title>
+<script src="js/jquery-1.4.4.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/json2.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#myForm').ajaxForm({
+			beforeSubmit:function() {
+				var result = document.getElementById("result").innerHTML = "<img src='loading.gif' alt='' />";
+				result.display = "block";
+			},
+			success:function(data) {
+				result.display = "none";
+				var json = jQuery.parseJSON(data);
+				$('#result').html(json.jsonResult);
+			}
+		});
+	});
+</script>
 </head>
 <body>
-	<div>hello</div>
+	<div>${message}</div>
+	<h2>File Upload</h2>
+	<form id="myForm" method="post" enctype="multipart/form-data" action="fileUpload.do">
+		<table>
+			<tr>
+				<td><input type="file" name="attachFile" /></td>
+				<td><input type="submit" value="Upload" /></td>
+			</tr>
+		</table>
+	</form>
+	<div id="result"></div>
 </body>
 </html>
