@@ -22,17 +22,18 @@ public class FileUploadController {
 
         DiskFileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
+        upload.setHeaderEncoding("utf-8");
         List<FileItem> items = upload.parseRequest(request);
         for (FileItem item : items) {
             String fileName = new File(item.getName()).getName();
-            String filePath = System.getProperty("java.io.tmpdir") + File.separator + fileName;
+            String filePath = System.getProperty("java.io.tmpdir") + fileName;
             File file = new File(filePath);
 
             item.write(file);
             
             response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.write("{\"jsonResult\":\"Upload has been done successfully!\"}");
+            out.write("{\"jsonResult\":\"Upload has been done successfully!\", \"fileName\":\"" + fileName + "\"}");
             /*out.println("<script>");
             out.println("alert('Upload has been done successfully!');");
             out.println("location.href='" + request.getContextPath() + "/hello.do" + "';");

@@ -19,9 +19,16 @@
 				result.display = "none";
 				var json = jQuery.parseJSON(data);
 				$('#result').html(json.jsonResult);
+				$('#fileDown').html(json.fileName);
 			}
 		});
 	});
+
+	function fnDownload(spanText) {
+		document.downForm.fileName.value = spanText.innerText;
+		document.downForm.action = "fileDownload.do";
+		document.downForm.submit();
+	}
 </script>
 </head>
 <body>
@@ -36,5 +43,11 @@
 		</table>
 	</form>
 	<div id="result"></div>
+	
+	<h2>File Download</h2>
+	<form name="downForm" method="post">
+		<input type="hidden" name="fileName" />
+		<a href="#"><span id="fileDown" onclick="fnDownload(this); return false;"></span></a>
+	</form>
 </body>
 </html>
