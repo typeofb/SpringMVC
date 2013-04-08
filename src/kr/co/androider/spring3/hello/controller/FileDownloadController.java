@@ -17,7 +17,8 @@ public class FileDownloadController {
     @RequestMapping("/fileDownload")
     public void onSubmit(HttpServletRequest request, HttpServletResponse response) throws Exception {
         
-        String fileName = new String(request.getParameter("fileName").getBytes("8859_1"), "utf-8");
+    	request.setCharacterEncoding("utf-8");
+        String fileName = request.getParameter("fileName");
         response.setHeader("Content-Disposition", "attachment; filename=" + fileName + ";");
         
         InputStream is = new FileInputStream(System.getProperty("java.io.tmpdir") + fileName);
