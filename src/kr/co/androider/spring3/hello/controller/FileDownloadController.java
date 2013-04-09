@@ -19,7 +19,7 @@ public class FileDownloadController {
         
     	request.setCharacterEncoding("utf-8");
         String fileName = request.getParameter("fileName");
-        response.setHeader("Content-Disposition", "attachment; filename=" + java.net.URLEncoder.encode(fileName, "utf-8") + ";");
+        response.setHeader("Content-Disposition", "attachment; filename=" + java.net.URLEncoder.encode(fileName, "utf-8").replaceAll("\\+", "%20") + ";");
         
         InputStream is = new FileInputStream(System.getProperty("java.io.tmpdir") + fileName);
         BufferedInputStream bis = new BufferedInputStream(is);
