@@ -12,7 +12,7 @@
 	$(document).ready(function() {
 		$('#myForm').ajaxForm({
 			beforeSubmit:function() {
-				var result = document.getElementById("result").innerHTML = "<img src='loading.gif' alt='' />";
+				var result = document.getElementById("result").innerHTML = "<img src='image/loading.gif' alt='' />";
 				result.display = "block";
 			},
 			success:function(data) {

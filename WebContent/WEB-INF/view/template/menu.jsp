@@ -5,10 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#menu {
+		margin:0;
+		padding:0;
+		list-style-type:none;
+	}
+	#menu li {background:url(image/bullet_pro_red01.gif) no-repeat left center; padding-left:15px;}
+    #menu li a:hover {background-color:#2a75b5; color:#e7f1fa;}
+</style>
 </head>
 <body>
-	<a href="hello.do">Say Hello</a><br />
-	<a href="app.do">Retrieve App</a><br />
-	<a href="contact.do">Contact</a><br />
+	<ul id="menu">
+    	<li><a href="hello.do">Say Hello</a></li>
+    	<li><a href="app.do">Retrieve App</a></li>
+    	<li><a href="contact.do">Contact</a></li>
+	</ul>
 </body>
 </html>

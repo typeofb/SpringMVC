@@ -8,10 +8,11 @@
 <title>Spring 3.0 MVC</title>
 <style type="text/css">
 	#container	{width:800px;}
-	#header		{width:800px; height:50px;}
-	#menu		{width:150px; height:300px; float:left;}
+	/* background: [-color] [-image] [-repeat] [-attachment] [-position]; */
+	#header		{width:800px; height:50px; background:url(image/left_line.gif) repeat-x bottom;}
+	#menu		{width:150px; height:300px; float:left; background:url(image/left_line.gif) repeat-y right;}
 	#body		{width:650px; float:right;}
-	#footer		{width:800px; height:50px; clear:both;}
+	#footer		{width:800px; height:50px; clear:both; background:url(image/left_line.gif) repeat-x top;}
 </style>
 </head>
 <body>
