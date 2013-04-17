@@ -12,6 +12,7 @@
 			value="jdbc:db2://107.21.27.248:51001/CPMTEST:retrieveMessagesFromServerOnGetMessage=true;currentSchema=CPM_MGR;" />
 		<property name="username" value="cpm_app" />
 		<property name="password" value="!CPM130app" />
+		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
