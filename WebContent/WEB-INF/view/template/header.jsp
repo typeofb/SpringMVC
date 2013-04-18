@@ -5,9 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#topNavi {width:800px; height:50px; background:url(image/top_bg_l_11.gif) no-repeat left bottom;}
+</style>
 </head>
 <body>
 	<div><%= request.getSession().getAttribute("token") %></div>
 	<a href="logout.do">Logout</a><br />
+	<div id="topNavi" />
 </body>
 </html>

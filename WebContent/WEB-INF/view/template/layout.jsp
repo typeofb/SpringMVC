@@ -9,10 +9,10 @@
 <style type="text/css">
 	#container	{width:800px;}
 	/* background: [-color] [-image] [-repeat] [-attachment] [-position]; */
-	#header		{width:800px; height:50px; background:url(image/left_line.gif) repeat-x bottom;}
-	#menu		{width:150px; height:300px; float:left; background:url(image/left_line.gif) repeat-y right;}
-	#body		{width:650px; float:right;}
-	#footer		{width:800px; height:50px; clear:both; background:url(image/left_line.gif) repeat-x top;}
+	#header		{width:auto; height:88px; background:url(image/top_bg_c_11.gif) no-repeat right bottom;}
+	#menu		{width:175px; height:300px; float:left; background:url(image/left_line.gif) repeat-y right top;}
+	#body		{width:auto; float:right;}
+	#footer		{width:auto; height:30px; clear:both; background:url(image/left_line.gif) repeat-x left top;}
 </style>
 </head>
 <body>
