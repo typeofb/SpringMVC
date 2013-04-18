@@ -9,9 +9,9 @@
 <style type="text/css">
 	#container	{width:800px;}
 	/* background: [-color] [-image] [-repeat] [-attachment] [-position]; */
-	#header		{width:auto; height:88px; background:url(image/top_bg_c_11.gif) no-repeat right bottom;}
+	#header		{width:auto; height:88px;}
 	#menu		{width:175px; height:300px; float:left; background:url(image/left_line.gif) repeat-y right top;}
-	#body		{width:auto; float:right;}
+	#body		{width:auto;}
 	#footer		{width:auto; height:30px; clear:both; background:url(image/left_line.gif) repeat-x left top;}
 </style>
 </head>
