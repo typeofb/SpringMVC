@@ -11,7 +11,7 @@
 		padding:0;
 		list-style-type:none;
 	}
-	#menu li {background:url(image/bullet_pro_red01.gif) no-repeat left center; padding-left:15px;}
+	#menu li {background:url(image/bullet_pro_red01.gif) no-repeat 5% center; padding-left:20px;}
     #menu li a:hover {background-color:#2a75b5; color:#e7f1fa;}
 </style>
 </head>
