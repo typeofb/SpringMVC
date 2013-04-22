@@ -9,7 +9,7 @@
 <style type="text/css">
 	#container	{width:auto; height:auto;}
 	/* background: [-color] [-image] [-repeat] [-attachment] [-position]; */
-	#header		{width:auto; height:78px;
+	#header		{width:auto; height:63px;
 		font-family:Tahoma, sans-serif;
 		font-size:12px;
 	}
