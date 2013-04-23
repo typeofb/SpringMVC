@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>www.androider.co.kr</title>
-<script src="js/jquery-1.4.4.js"></script>
+<script src="js/jquery-1.4.3.min.js"></script>
 <script src="js/jquery.form.js"></script>
 <script src="js/json2.js"></script>
 <script>

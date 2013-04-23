@@ -51,7 +51,7 @@ public class AppController extends SqlSessionDaoSupport {
         
         ModelAndView mv = new ModelAndView();
         mv.setViewName("app");
-        mv.addObject("msg", list.get(0).getAppPkgName());
+        mv.addObject("appList", list);
 
         return mv;
     }
