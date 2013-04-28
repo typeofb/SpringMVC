@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#masterHeader {background:url(image/top_bg_c_11.gif) no-repeat right bottom;}
-	#topNavi {width:2000px; height:44px; background:url(image/top_bg_l_11.gif) no-repeat left bottom;}
+	#topNavi {height:44px; background:url(image/top_bg_l_11.gif) no-repeat left bottom;}
 	#mainMenu {margin:0px; padding:6px 6px 6px 16px;}
 	#mainMenu li {
 		background:url(image/m_tab_l_on1.gif) no-repeat;
