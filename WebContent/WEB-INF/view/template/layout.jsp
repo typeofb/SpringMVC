@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spring 3.0 MVC</title>
 <style type="text/css">
-	#container	{width:auto; height:auto;}
+	#container	{width:1000px; height:auto; margin:0 auto;}
 	/* background: [-color] [-image] [-repeat] [-attachment] [-position]; */
 	#header		{width:auto; height:63px;
 		font-family:Tahoma, sans-serif;
