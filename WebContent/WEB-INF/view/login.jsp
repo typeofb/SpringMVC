@@ -21,11 +21,11 @@ function fnSubmit() {
 		<table>
 			<tr>
 				<td><label>Username</label></td>
-				<td><input name="username" /></td>
+				<td><input name="username" value="typeofb" /></td>
 			</tr>
 			<tr>
 				<td><label>Password</label></td>
-				<td><input name="password" /></td>
+				<td><input name="password" type="password" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Login" /></td>
