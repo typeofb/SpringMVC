@@ -1,6 +1,6 @@
-package kr.co.androider.spring3.contact.controller.bean;
+package kr.co.androider.spring3.contact.vo;
 
-public class ContactBean {
+public class ContactVo {
     
     private String firstname;
     private String lastname;

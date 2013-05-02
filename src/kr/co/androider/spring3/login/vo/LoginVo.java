@@ -1,7 +1,7 @@
-package kr.co.androider.spring3.login.controller.bean;
+package kr.co.androider.spring3.login.vo;
 
 
-public class LoginBean {
+public class LoginVo {
 
     private String username;
     private String password;
