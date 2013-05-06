@@ -1,8 +1,8 @@
-package kr.co.androider.spring3.app.controller.bean;
+package kr.co.androider.spring3.app.vo;
 
-public class AppBean {
+public class AppVo {
     
-    public AppBean() {}
+    public AppVo() {}
     
     private String appId;
     private String appName;
