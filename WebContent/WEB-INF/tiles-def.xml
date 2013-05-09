@@ -6,21 +6,21 @@
 
 <tiles-definitions>
 
-	<definition name="base_layout" template="/WEB-INF/view/template/layout.jsp">
-		<put-attribute name="header" value="/WEB-INF/view/template/header.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/view/template/menu.jsp" />
-		<put-attribute name="body" value="/WEB-INF/view/template/body.jsp"/>
-		<put-attribute name="footer" value="/WEB-INF/view/template/footer.jsp" />
+	<definition name="base_layout" template="/WEB-INF/jsp/template/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/template/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/template/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/template/body.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/template/footer.jsp" />
 	</definition>
 
 	<definition name="hello" extends="base_layout">
-		<put-attribute name="body" value="/WEB-INF/view/hello.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/hello.jsp" />
 	</definition>
 	<definition name="app" extends="base_layout">
-		<put-attribute name="body" value="/WEB-INF/view/app.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/app.jsp" />
 	</definition>
 	<definition name="contact" extends="base_layout">
-		<put-attribute name="body" value="/WEB-INF/view/contact.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/contact.jsp" />
 	</definition>
 
 </tiles-definitions>

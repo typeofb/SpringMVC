@@ -13,6 +13,6 @@
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="/kr/co/androider/spring3/mapper.xml" />
+		<mapper resource="mapper.xml" />
 	</mappers>
 </configuration>
