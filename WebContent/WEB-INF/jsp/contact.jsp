@@ -10,6 +10,7 @@
 <body>
 	<h2>Contact Manager</h2>
 	<form:form method="post" action="addContact.do">
+		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 		<table>
 			<tr>
 				<td><form:label path="firstname">First Name</form:label></td>

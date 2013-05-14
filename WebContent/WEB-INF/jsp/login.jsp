@@ -4,33 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login</title>
-<script type="text/javascript">
-function fnSubmit() {
-	var x = document.forms["myForm"]["username"].value;
-	if (x == null || x == "") {
-		alert("Username must be filled out");
-		return false;
-	}
-}
-</script>
+<title>Insert title here</title>
 </head>
 <body>
-	<h2>Login</h2>
-	<form name="myForm" method="post" action="login.do" onsubmit="return fnSubmit()">
-		<table>
-			<tr>
-				<td><label>Username</label></td>
-				<td><input name="username" value="typeofb" /></td>
-			</tr>
-			<tr>
-				<td><label>Password</label></td>
-				<td><input name="password" type="password" /></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Login" /></td>
-			</tr>
-		</table>
+	<form name="sform" method="post" action="hello.do">
+		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 	</form>
+	<script>
+		document.sform.submit();
+	</script>
 </body>
 </html>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class LoginSessionCheckInterceptor extends HandlerInterceptorAdapter {
+public class SavedTokenInterceptor extends HandlerInterceptorAdapter {
     
     private Logger logger = Logger.getLogger(getClass());
 
@@ -33,15 +33,17 @@ public class LoginSessionCheckInterceptor extends HandlerInterceptorAdapter {
             return true;
         else {
             HttpSession session = request.getSession();
-            if (session.getAttribute("token") == null) {
+            if (session.getAttribute("token") == null || request.getParameter("token") == null) {
                 response.setContentType("text/html; charset=utf-8");
                 PrintWriter out = response.getWriter();
                 out.println("<script>");
                 out.println("alert('You are not logged in. Please Log In');");
                 out.println("location.href='" + request.getContextPath() + "';");
                 out.println("</script>");
+                out.flush();
                 return false;
-            } else return true;
+            } else
+            	return session.getAttribute("token").equals(request.getParameter("token"));
         }
     }
 }

@@ -14,12 +14,21 @@
 	#menu li {background:url(image/bullet_pro_red01.gif) no-repeat 5% center; padding-left:20px;}
     #menu li a:hover {background-color:#2a75b5; color:#e7f1fa;}
 </style>
+<script type="text/javascript">
+	function fnMovePage(menuName) {
+		document.lform.action = menuName;
+		document.lform.submit();
+	}
+</script>
 </head>
 <body>
-	<ul id="menu">
-    	<li><a href="hello.do">Say Hello</a></li>
-    	<li><a href="app.do">Retrieve App</a></li>
-    	<li><a href="contact.do">Contact</a></li>
-	</ul>
+	<form name="lform" method="post">
+		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
+		<ul id="menu">
+			<li><a href="#" onclick="fnMovePage('hello.do'); return false;">Say Hello</a></li>
+			<li><a href="#" onclick="fnMovePage('app.do'); return false;">Retrieve App</a></li>
+			<li><a href="#" onclick="fnMovePage('contact.do'); return false;">Contact</a></li>
+		</ul>
+	</form>
 </body>
 </html>

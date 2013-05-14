@@ -28,7 +28,7 @@
 </script>
 </head>
 <body>
-	<span style="float:left; margin-left:10px;"><%= request.getSession().getAttribute("token") %></span>
+	<span style="float:left; margin-left:10px;"><%= request.getSession().getAttribute("username") %></span>
 	<span style="float:right; margin-right:10px;"><a href="logout.do">Logout</a></span><br />
 	<div id="masterHeader">
 		<div id="topNavi">
