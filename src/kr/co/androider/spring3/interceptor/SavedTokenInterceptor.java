@@ -20,30 +20,35 @@ public class SavedTokenInterceptor extends HandlerInterceptorAdapter {
         
         logger.debug("##### interceptor #####");
         
-        boolean isLoginDo = false;
-        
         StringTokenizer st = new StringTokenizer(request.getRequestURL().toString(), "/");
         while(st.hasMoreTokens()) {
             String token = st.nextToken();
             if (token.equals("login.do"))
-                isLoginDo = true;
+            	return true;
         }
         
-        if (isLoginDo == true)
-            return true;
-        else {
-            HttpSession session = request.getSession();
-            if (session.getAttribute("token") == null || request.getParameter("token") == null) {
-                response.setContentType("text/html; charset=utf-8");
+        HttpSession session = request.getSession();
+        if (session.getAttribute("token") == null || request.getParameter("token") == null) {
+            response.setContentType("text/html; charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>");
+            out.println("alert('You are not logged in. Please Log In');");
+            out.println("location.href='" + request.getContextPath() + "';");
+            out.println("</script>");
+            out.flush();
+            return false;
+        } else {
+        	if (!session.getAttribute("token").equals(request.getParameter("token"))) {
+        		response.setContentType("text/html; charset=utf-8");
                 PrintWriter out = response.getWriter();
                 out.println("<script>");
-                out.println("alert('You are not logged in. Please Log In');");
+                out.println("alert('This task is already running or is an unusual request');");
                 out.println("location.href='" + request.getContextPath() + "';");
                 out.println("</script>");
                 out.flush();
                 return false;
-            } else
-            	return session.getAttribute("token").equals(request.getParameter("token"));
+        	}
         }
+		return true;
     }
 }
