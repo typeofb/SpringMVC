@@ -1,36 +1,31 @@
-package kr.co.androider.spring3.interceptor;
+package kr.co.androider.spring3.contact.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.StringTokenizer;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-public class SavedTokenInterceptor extends HandlerInterceptorAdapter {
-    
-    private Logger logger = Logger.getLogger(getClass());
-
-    @Override
-    public boolean preHandle(HttpServletRequest request,
-            HttpServletResponse response, Object handler) throws Exception{
-        
-        logger.debug("##### interceptor #####");
-        
-        StringTokenizer st = new StringTokenizer(request.getRequestURL().toString(), "/");
-        while(st.hasMoreTokens()) {
-            String token = st.nextToken();
-            if (token.equals("login.do"))
-            	return true;
-        }
-        
-        HttpSession session = request.getSession();
+public class SaveToken {
+	
+	public void setToken(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.setAttribute("token", new BigInteger(165, new SecureRandom()).toString(36).toUpperCase());
+	}
+	
+	public boolean isValid(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
         if (session.getAttribute("token") == null || request.getParameter("token") == null) {
             response.setContentType("text/html; charset=utf-8");
-            PrintWriter out = response.getWriter();
+            PrintWriter out = null;
+			try {
+				out = response.getWriter();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
             out.println("<script>");
             out.println("alert('You are not logged in. Please Log In');");
             out.println("location.href='" + request.getContextPath() + "';");
@@ -40,7 +35,12 @@ public class SavedTokenInterceptor extends HandlerInterceptorAdapter {
         } else {
         	if (!session.getAttribute("token").equals(request.getParameter("token"))) {
         		response.setContentType("text/html; charset=utf-8");
-                PrintWriter out = response.getWriter();
+                PrintWriter out = null;
+				try {
+					out = response.getWriter();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
                 out.println("<script>");
                 out.println("alert('This task is already running or is an unusual request');");
                 out.println("location.href='" + request.getContextPath() + "';");
@@ -50,5 +50,5 @@ public class SavedTokenInterceptor extends HandlerInterceptorAdapter {
         	}
         }
 		return true;
-    }
+	}
 }

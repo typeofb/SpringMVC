@@ -19,7 +19,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*.do" />
-			<bean class="kr.co.androider.spring3.interceptor.SavedTokenInterceptor" />
+			<bean class="kr.co.androider.spring3.interceptor.LoginSessionCheckInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 
