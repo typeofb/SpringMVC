@@ -22,7 +22,15 @@
 	#mainMenu li span a {color:#AE0141; font-weight:bold;}
 </style>
 <script type="text/javascript">
-	function fnMovePage(menuNo) { }
+	// 추후에 menuNo를 db에서 검색
+	function fnMoveHeader(menuNo) {
+		if (menuNo == '2000000') {
+			document.lform.action = "app.do";
+		} else {
+			document.lform.action = "hello.do";
+		}
+		document.lform.submit();
+	}
 
 	function fnMenuToggle(obj) { }
 </script>
@@ -33,10 +41,10 @@
 	<div id="masterHeader">
 		<div id="topNavi">
 			<ul id="mainMenu">
-				<li><span><a href="javascript:fnMovePage('1000000');" onclick="fnMenuToggle(this);">User Mgmt</a></span></li>
-				<li><span><a href="javascript:fnMovePage('2000000');" onclick="fnMenuToggle(this);">Service Mgmt</a></span></li>
-				<li><span><a href="javascript:fnMovePage('3000000');" onclick="fnMenuToggle(this);">Service Monitoring</a></span></li>
-				<li><span><a href="javascript:fnMovePage('4000000');" onclick="fnMenuToggle(this);">Common Mgmt</a></span></li>
+				<li><span><a href="javascript:fnMoveHeader('1000000');" onclick="fnMenuToggle(this);">User Mgmt</a></span></li>
+				<li><span><a href="javascript:fnMoveHeader('2000000');" onclick="fnMenuToggle(this);">Service Mgmt</a></span></li>
+				<li><span><a href="javascript:fnMoveHeader('3000000');" onclick="fnMenuToggle(this);">Service Monitoring</a></span></li>
+				<li><span><a href="javascript:fnMoveHeader('4000000');" onclick="fnMenuToggle(this);">Common Mgmt</a></span></li>
 			</ul>
 		</div>
 	</div>
