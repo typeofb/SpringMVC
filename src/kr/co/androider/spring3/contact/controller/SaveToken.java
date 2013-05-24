@@ -9,11 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 public class SaveToken {
+	
+	private Logger logger = Logger.getLogger(getClass());
 	
 	public void setToken(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.setAttribute("token", new BigInteger(165, new SecureRandom()).toString(36).toUpperCase());
+		logger.debug("##### token = " + session.getAttribute("token") + " #####");
 	}
 	
 	public boolean isValid(HttpServletRequest request, HttpServletResponse response) {

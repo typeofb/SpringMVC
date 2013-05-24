@@ -37,15 +37,19 @@ public class ContactController {
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public ModelAndView addContact(@ModelAttribute("contact") ContactVo ContactVo, HttpServletRequest request, HttpServletResponse response) {
         
-        ContactVo contact = new ContactVo();
-        contact = iContactService.changeInfo(ContactVo);
-        
+    	logger.info("console - debug level /addContact! ");
+    	
         // 토큰 비교
         if (saveToken.isValid(request, response)) {
         	logger.debug("true");
     	} else {
     		logger.debug("false");
+//    		return new ModelAndView("forward:/contact.do");
+        	return new ModelAndView("redirect:/");
     	}
+        
+        ContactVo contact = new ContactVo();
+        contact = iContactService.changeInfo(ContactVo);
         
         return new ModelAndView("contact", "command", contact);
     }
