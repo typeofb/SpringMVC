@@ -13,7 +13,7 @@
 		font-family:Tahoma, sans-serif;
 		font-size:12px;
 	}
-	#menu		{width:175px; height:500px; float:left; background:url(image/left_line.gif) repeat-y right top;
+	#sidebar		{width:175px; height:500px; float:left; background:url(image/left_line.gif) repeat-y right top;
 		font-family:Monaco, Verdana, Sans-serif;
 		font-size:16px;
 		color:#002166;
@@ -40,7 +40,7 @@
 <body>
 	<div id="container">
 		<div id="header"><tiles:insertAttribute name="header" /></div>
-		<div id="menu"><tiles:insertAttribute name="menu" /></div>
+		<div id="sidebar"><tiles:insertAttribute name="sidebar" /></div>
 		<div id="body"><tiles:insertAttribute name="body" /></div>
 		<div id="footer"><tiles:insertAttribute name="footer" /></div>
 	</div>
