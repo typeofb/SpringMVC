@@ -10,7 +10,7 @@
 <script src="js/json2.js"></script>
 <script>
 	$(document).ready(function() {
-		$('#myForm').ajaxForm({
+		$('#uploadForm').ajaxForm({
 			beforeSubmit:function() {
 				var result = document.getElementById("result").innerHTML = "<img src='image/loading.gif' alt='' />";
 				result.display = "block";
@@ -25,16 +25,16 @@
 	});
 
 	function fnDownload(spanText) {
-		document.downForm.fileName.value = spanText.innerText;
-		document.downForm.action = "fileDownload.do";
-		document.downForm.submit();
+		document.downloadForm.fileName.value = spanText.innerText;
+		document.downloadForm.action = "fileDownload.do";
+		document.downloadForm.submit();
 	}
 </script>
 </head>
 <body>
 	<div>${message}</div>
 	<h2>File Upload</h2>
-	<form id="myForm" method="post" enctype="multipart/form-data" action="fileUpload.do">
+	<form id="uploadForm" method="post" enctype="multipart/form-data" action="fileUpload.do">
 		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 		<table>
 			<tr>
@@ -46,7 +46,7 @@
 	<div id="result"></div>
 	
 	<h2>File Download</h2>
-	<form name="downForm" method="post">
+	<form name="downloadForm" method="post">
 		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 		<input type="hidden" name="fileName" />
 		<a href="#"><span id="fileDown" onclick="fnDownload(this); return false;"></span></a>

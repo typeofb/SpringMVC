@@ -16,18 +16,19 @@
 </style>
 <script type="text/javascript">
 	function fnMovePage(sidebarName) {
-		document.lform.action = sidebarName;
-		document.lform.submit();
+		document.sidebarForm.action = sidebarName;
+		document.sidebarForm.submit();
 	}
 </script>
 </head>
 <body>
-	<form name="lform" method="post">
+	<form name="sidebarForm" method="post">
 		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 		<ul id="sidebar">
 			<li><a href="#" onclick="fnMovePage('hello.do'); return false;">Say Hello</a></li>
 			<li><a href="#" onclick="fnMovePage('app.do'); return false;">Retrieve App</a></li>
 			<li><a href="#" onclick="fnMovePage('contact.do'); return false;">Contact</a></li>
+			<li><a href="#" onclick="fnMovePage('report.do'); return false;">Report Page</a></li>
 		</ul>
 	</form>
 </body>

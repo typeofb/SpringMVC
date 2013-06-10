@@ -25,16 +25,16 @@
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" p:order="1">
 		<property name="mappings">
 			<props>
-				<prop key="test.do">testController</prop>
+				<prop key="reportDetail.do">reportDetailController</prop>
 			</props>
 		</property>
 	</bean>
 	<!-- calling jsp without a controller -->
-	<bean name="testController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="test" />
+	<bean name="reportDetailController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="reportDetail" />
 	</bean>
 	<!-- another way of ParameterizableViewController -->
-	<!-- <mvc:view-controller path="test.do" view-name="test" /> -->
+	<!-- <mvc:view-controller path="reportDetail.do" view-name="reportDetail" /> -->
 	
 	<!-- @MVC Interceptor -->
 	<mvc:interceptors>

@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="loginForm" method="post" action="hello.do">
-		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
-	</form>
-	<script>
-		document.loginForm.submit();
-	</script>
+	<h4>Report Detail Page</h4><br />
 </body>
 </html>
