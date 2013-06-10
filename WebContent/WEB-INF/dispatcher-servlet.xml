@@ -12,9 +12,30 @@
 						http://www.springframework.org/schema/mvc
 						http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     
+	<!-- annotation handler -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" p:order="0" />
+	<!-- annotation scan -->
 	<!-- @Controller 설정 -->
+	<!-- <context:annotation-config /> -->
 	<context:component-scan base-package="kr.co.androider.spring3" />
-
+	
+	<!-- general handler : SimpleUrlHandlerMapping, BeanNameUrlHandlerMapping -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" p:order="1">
+		<property name="mappings">
+			<props>
+				<prop key="test.do">testController</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- calling jsp without a controller -->
+	<bean name="testController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="test" />
+	</bean>
+	<!-- another way of ParameterizableViewController -->
+	<!-- <mvc:view-controller path="test.do" view-name="test" /> -->
+	
 	<!-- @MVC Interceptor -->
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -22,7 +43,7 @@
 			<bean class="kr.co.androider.spring3.interceptor.LoginSessionCheckInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-
+	
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<property name="definitions">
@@ -36,7 +57,7 @@
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles2.TilesView" />
-		<property name="order" value="1"/>
+		<property name="order" value="0" />
 	</bean>
 	
 	<bean id="viewResolver"
@@ -45,7 +66,7 @@
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
-		<property name="order" value="2"/>
+		<property name="order" value="1" />
 	</bean>
-
+	
 </beans>
