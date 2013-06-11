@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h4>Report Detail Page</h4><br />
+	<div>${message}</div>
 </body>
 </html>

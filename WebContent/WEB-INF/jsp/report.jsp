@@ -9,9 +9,10 @@
 <script>
 	$(function() {
 		$("#btnDetail").click(function() {
-			$.post("report.do", $("#reportForm").serialize(), // data
+			$.post("reportAjax.do", $("#reportForm").serialize(), // data
 				// success callback function
 				function(data) {
+					document.reportForm.result.value = data;
 					$("#indexPage").load("reportDetail.do", $("#reportForm").serialize());
 				}
 			);
@@ -22,11 +23,13 @@
 </head>
 <body>
 	<div id="indexPage">
-		<form id="reportForm" method="post">
+		<form id="reportForm" name="reportForm" method="post">
 			<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
+			<input type="hidden" name="result" />
 			<h4>Report Index Page</h4><br />
 			<div>Ajax Move for this body</div><br />
-			<input id="btnDetail" type="button" value="Click" />
+			<input type="text" name="txtInput" />
+			<input type="button" id="btnDetail" value="Click" />
 		</form>
 	</div>
 </body>
