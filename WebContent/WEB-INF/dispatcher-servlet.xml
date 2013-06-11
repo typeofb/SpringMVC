@@ -11,17 +11,17 @@
 						http://www.springframework.org/schema/context/spring-context-3.0.xsd
 						http://www.springframework.org/schema/mvc
 						http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-    
-	<!-- annotation handler -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" p:order="0" />
-	<!-- annotation scan -->
-	<!-- @Controller 설정 -->
-	<!-- <context:annotation-config /> -->
-	<context:component-scan base-package="kr.co.androider.spring3" />
+
+	<!-- @Required, @Autowired, @Resource, @PostConstruct, @PreDestroy, @Configuration 어노테이션 처리 -->
+	<context:annotation-config />
 	
-	<!-- general handler : SimpleUrlHandlerMapping, BeanNameUrlHandlerMapping -->
-	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<!-- annotation scan : 자동 @Controller 설정 -->
+	<context:component-scan base-package="kr.co.androider.spring3" />
+	<!-- 1. annotation handler -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" p:order="0" />
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+	
+	<!-- 2. general handler : SimpleUrlHandlerMapping, BeanNameUrlHandlerMapping -->
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" p:order="1">
 		<property name="mappings">
 			<props>
@@ -35,6 +35,7 @@
 	</bean>
 	<!-- another way of ParameterizableViewController -->
 	<!-- <mvc:view-controller path="reportDetail.do" view-name="reportDetail" /> -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
 	
 	<!-- @MVC Interceptor -->
 	<mvc:interceptors>
