@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,8 +16,10 @@
     #sidebar li a:hover {background-color:#2a75b5; color:#e7f1fa;}
 </style>
 <script type="text/javascript">
-	function fnMovePage(sidebarName) {
-		document.sidebarForm.action = sidebarName;
+	function fnMovePage(menuId, parentMenuId) {
+		document.sidebarForm.menuId.value = menuId;
+		document.sidebarForm.parentMenuId.value = parentMenuId;
+//		document.sidebarForm.action = "navigator.do";
 		document.sidebarForm.submit();
 	}
 </script>
@@ -24,11 +27,13 @@
 <body>
 	<form name="sidebarForm" method="post">
 		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
+		<input type="hidden" name="menuId" />
+		<input type="hidden" name="parentMenuId" />
+		
 		<ul id="sidebar">
-			<li><a href="#" onclick="fnMovePage('hello.do'); return false;">Say Hello</a></li>
-			<li><a href="#" onclick="fnMovePage('app.do'); return false;">Retrieve App</a></li>
-			<li><a href="#" onclick="fnMovePage('contact.do'); return false;">Contact</a></li>
-			<li><a href="#" onclick="fnMovePage('report.do'); return false;">Report Page</a></li>
+			<c:forEach items="${sidebar}" var="sidebarEntry">
+				<li><a href="#" onclick="fnMovePage('${sidebarEntry.menuId}', '${sidebarEntry.parentMenuId}'); return false;">${sidebarEntry.menuName}</a></li>
+			</c:forEach>
 		</ul>
 	</form>
 </body>

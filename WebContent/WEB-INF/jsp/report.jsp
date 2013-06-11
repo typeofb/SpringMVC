@@ -9,7 +9,7 @@
 <script>
 	$(function() {
 		$("#btnDetail").click(function() {
-			$.post("hello.do", $("#reportForm").serialize(), // data
+			$.post("report.do", $("#reportForm").serialize(), // data
 				// success callback function
 				function(data) {
 					$("#indexPage").load("reportDetail.do", $("#reportForm").serialize());

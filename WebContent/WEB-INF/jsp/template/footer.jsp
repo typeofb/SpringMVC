@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>copyrightⓒ 2013 All rights reserved by Shin Hyeon-Ho</div>
+	<div>copyrightⓒ 2013 All rights reserved by Shin Hyeon-ho</div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="loginForm" method="post" action="hello.do">
+	<form name="loginForm" method="post" action="navigator.do">
 		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 	</form>
 	<script>
