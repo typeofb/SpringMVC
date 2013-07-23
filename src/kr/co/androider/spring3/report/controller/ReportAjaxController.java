@@ -8,17 +8,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ReportAjaxController {
 
 	@RequestMapping("/reportAjax")
-	public void reportAjax(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void reportAjax(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam(value="txtInput", required=false) String txtInput) throws IOException {
 
 		System.out.println("log - reportAjax");
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.write(request.getParameter("txtInput"));
+//		out.write(request.getParameter("txtInput"));
+		out.write(txtInput);
 	}
 }
