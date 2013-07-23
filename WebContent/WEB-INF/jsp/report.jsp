@@ -9,13 +9,23 @@
 <script>
 	$(function() {
 		$("#btnDetail").click(function() {
-			$.post("reportAjax.do", $("#reportForm").serialize(), // data
+			/*$.post("reportAjax.do", $("#reportForm").serialize(), // data
 				// success callback function
 				function(data) {
 					document.reportForm.result.value = data;
 					$("#indexPage").load("reportDetail.do", $("#reportForm").serialize());
 				}
-			);
+			);*/
+			// ajax 한글깨짐 개선
+			$.ajax({
+				type: "POST",
+				url: "reportAjax.do",
+				data: $("#reportForm").serializeArray(),
+				success: function(data) {
+					document.reportForm.result.value = data;
+					$("#indexPage").load("reportDetail.do", $("#reportForm").serializeArray());
+				}
+			});
 			return false;
 		});
 	});
