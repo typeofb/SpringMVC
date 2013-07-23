@@ -24,7 +24,7 @@
 <body>
 	<div id="indexPage">
 		<form id="reportForm" name="reportForm" method="post">
-			<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
+			<input type="hidden" name="token" value="${sessionScope.token}" />
 			<input type="hidden" name="result" />
 			<h4>Report Index Page</h4><br />
 			<div>Ajax Move for this body</div><br />
