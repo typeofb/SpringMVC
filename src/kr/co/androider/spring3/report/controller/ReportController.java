@@ -38,9 +38,13 @@ public class ReportController {
 	}
 	
 	@RequestMapping("/reportSelect")
-	public ModelAndView reportSelect(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView reportSelect(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam HashMap<Object, Object> param) {
 
 		System.out.println("log - reportSelect");
+		
+		// reportForm
+		System.out.println(param);
 		
 		// [{LOC_CD=4009, LOC_NM=남인천}, {LOC_CD=4030, LOC_NM=강화}, {LOC_CD=4043, LOC_NM=시흥}, {LOC_CD=4046, LOC_NM=김포}]
 		HashMap<Object, Object> map1 = new HashMap<Object, Object>();
