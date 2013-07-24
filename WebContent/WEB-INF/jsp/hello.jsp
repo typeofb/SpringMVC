@@ -35,7 +35,7 @@
 	<div>${message}</div>
 	<h2>File Upload</h2>
 	<form id="uploadForm" method="post" enctype="multipart/form-data" action="fileUpload.do">
-		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
+		<!-- <input type="hidden" name="token" value="<%= session.getAttribute("token") %>" /> -->
 		<table>
 			<tr>
 				<td><input type="file" name="attachFile" /></td>
