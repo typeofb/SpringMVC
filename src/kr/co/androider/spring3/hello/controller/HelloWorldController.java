@@ -1,5 +1,19 @@
 package kr.co.androider.spring3.hello.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,4 +29,51 @@ public class HelloWorldController {
 		System.out.println(message);
 		return new ModelAndView("hello", "message", message);
 	}
+	
+	@RequestMapping("/fileUpload")
+    public void fileUpload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        upload.setHeaderEncoding("utf-8");
+        List<FileItem> items = upload.parseRequest(request);
+        for (FileItem item : items) {
+            String fileName = new File(item.getName()).getName();
+            String filePath = System.getProperty("java.io.tmpdir") + fileName;
+            File file = new File(filePath);
+
+            item.write(file);
+            
+            response.setContentType("text/html; charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.write("{\"jsonResult\":\"Upload has been done successfully!\", \"fileName\":\"" + fileName + "\"}");
+            /*out.println("<script>");
+            out.println("alert('Upload has been done successfully!');");
+            out.println("location.href='" + request.getContextPath() + "/hello.do" + "';");
+            out.println("</script>");*/
+        }
+    }
+	
+	@RequestMapping("/fileDownload")
+    public void fileDownload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        
+    	request.setCharacterEncoding("utf-8");
+        String fileName = request.getParameter("fileName");
+        response.setHeader("Content-Disposition", "attachment; filename=" + java.net.URLEncoder.encode(fileName, "utf-8").replaceAll("\\+", "%20") + ";");
+        
+        InputStream is = new FileInputStream(System.getProperty("java.io.tmpdir") + fileName);
+        BufferedInputStream bis = new BufferedInputStream(is);
+        
+        BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
+        
+        int byteRead = 0;
+        byte[] buffer = new byte[4096];
+        while ((byteRead = bis.read(buffer)) != -1) {
+            bos.write(buffer, 0, byteRead);
+        }
+        
+        bos.close();
+        bis.close();
+        is.close();
+    }
 }

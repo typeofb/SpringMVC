@@ -25,12 +25,12 @@
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" p:order="1">
 		<property name="mappings">
 			<props>
-				<prop key="report.do">reportController</prop>
+				<prop key="report.do">redirectReport</prop>
 			</props>
 		</property>
 	</bean>
 	<!-- calling jsp without a controller -->
-	<bean name="reportController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	<bean name="redirectReport" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="report" />
 	</bean>
 	<!-- another way of ParameterizableViewController -->
