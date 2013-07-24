@@ -8,6 +8,8 @@
 <script language="JavaScript" src="js/jquery-1.4.3.min.js"></script>
 <script>
 	$(function() {
+		fnSelectTag();
+		
 		$("#btnDetail").click(function() {
 			/*$.post("reportAjax.do", $("#reportForm").serialize(), // data
 				// success callback function
@@ -29,6 +31,17 @@
 			return false;
 		});
 	});
+	
+	function fnSelectTag() {
+		$.ajax({
+			type: "POST",
+			url: "reportSelect.do",
+			data: $("#reportForm").serializeArray(),
+			success: function(data) {
+				$("#selectTag").html(data);
+			}
+		});
+	}
 </script>
 </head>
 <body>
@@ -40,6 +53,7 @@
 			<div>Ajax Move for this body</div><br />
 			<input type="text" name="txtInput" />
 			<input type="button" id="btnDetail" value="Click" />
+			<div id="selectTag"></div>
 		</form>
 	</div>
 </body>
