@@ -48,8 +48,10 @@ public class ReportController {
 		
 		// [{LOC_CD=4009, LOC_NM=남인천}, {LOC_CD=4030, LOC_NM=강화}, {LOC_CD=4043, LOC_NM=시흥}, {LOC_CD=4046, LOC_NM=김포}]
 		HashMap<Object, Object> map1 = new HashMap<Object, Object>();
+		map1.put("LOC_CD", 4009);
 		map1.put("LOC_NM", "남인천");
 		HashMap<Object, Object> map2 = new HashMap<Object, Object>();
+		map2.put("LOC_CD", 4030);
 		map2.put("LOC_NM", "강화");
 		ArrayList<HashMap<Object, Object>> list = new ArrayList<HashMap<Object, Object>>();
 		list.add(map1);
