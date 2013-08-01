@@ -9,7 +9,7 @@
 <script src="js/jquery.form.js"></script>
 <script src="js/json2.js"></script>
 <script>
-	$(document).ready(function() {
+	/*$(document).ready(function() {
 		$('#uploadForm').ajaxForm({
 			beforeSubmit:function() {
 				var result = document.getElementById("result").innerHTML = "<img src='image/loading.gif' alt='' />";
@@ -22,7 +22,26 @@
 				$('#fileDown').html(json.fileName);
 			}
 		});
-	});
+	});*/
+	
+	function fnUpload() {
+		var options = {
+			beforeSubmit:function() {
+				var result = document.getElementById("result").innerHTML = "<img src='image/loading.gif' alt='' />";
+				result.display = "block";
+			},
+			success:function(data) {
+				result.display = "none";
+				var json = jQuery.parseJSON(data);
+				$('#result').html(json.jsonResult);
+				$('#fileDown').html(json.fileName);
+			},
+			url : "fileUpload.do",
+			contentType : "multipart/form-data",
+			dataType : "html"  /* xml, html, script, json */
+		};
+		$('#uploadForm').ajaxSubmit(options);
+	}
 
 	function fnDownload(spanText) {
 		document.downloadForm.fileName.value = spanText.innerText;
@@ -34,12 +53,12 @@
 <body>
 	<div>${message}</div>
 	<h2>File Upload</h2>
-	<form id="uploadForm" method="post" enctype="multipart/form-data" action="fileUpload.do">
-		<!-- <input type="hidden" name="token" value="<%= session.getAttribute("token") %>" /> -->
+	<form id="uploadForm" method="post">
+		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 		<table>
 			<tr>
 				<td><input type="file" name="attachFile" /></td>
-				<td><input type="submit" value="Upload" /></td>
+				<td><input type="button" value="Upload" onclick="fnUpload()" /></td>
 			</tr>
 		</table>
 	</form>

@@ -22,7 +22,7 @@ public class LoginSessionCheckInterceptor extends HandlerInterceptorAdapter {
 		StringTokenizer st = new StringTokenizer(request.getRequestURL().toString(), "/");
 		while (st.hasMoreTokens()) {
 			String token = st.nextToken();
-			if (token.equals("login.do") || token.equals("fileUpload.do"))
+			if (token.equals("login.do"))
 				return true;
 		}
 

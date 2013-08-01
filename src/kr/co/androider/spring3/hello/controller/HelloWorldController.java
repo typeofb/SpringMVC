@@ -4,8 +4,10 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +17,11 @@ import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -31,9 +37,13 @@ public class HelloWorldController {
 	}
 	
 	@RequestMapping("/fileUpload")
-    public void fileUpload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void fileUpload(HttpServletRequest request, HttpServletResponse response,
+    		@RequestParam HashMap<Object, Object> param) throws Exception {
 
-        DiskFileItemFactory factory = new DiskFileItemFactory();
+		// form token
+		System.out.println(param);
+		
+        /*DiskFileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
         upload.setHeaderEncoding("utf-8");
         List<FileItem> items = upload.parseRequest(request);
@@ -47,11 +57,23 @@ public class HelloWorldController {
             response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
             out.write("{\"jsonResult\":\"Upload has been done successfully!\", \"fileName\":\"" + fileName + "\"}");
-            /*out.println("<script>");
+            out.println("<script>");
             out.println("alert('Upload has been done successfully!');");
             out.println("location.href='" + request.getContextPath() + "/hello.do" + "';");
-            out.println("</script>");*/
-        }
+            out.println("</script>");
+        }*/
+		
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
+		MultipartFile mFile = multipartRequest.getFile("attachFile");
+		String fileName = mFile.getOriginalFilename();
+		String filePath = System.getProperty("java.io.tmpdir") + fileName;
+		File file = new File(filePath);
+		
+		FileCopyUtils.copy(mFile.getInputStream(), new FileOutputStream(file));
+		
+		response.setContentType("text/html; charset=utf-8");
+        PrintWriter out = response.getWriter();
+        out.write("{\"jsonResult\":\"Upload has been done successfully!\", \"fileName\":\"" + fileName + "\"}");
     }
 	
 	@RequestMapping("/fileDownload")
