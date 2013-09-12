@@ -41,7 +41,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*.do" />
-			<bean class="kr.co.androider.spring3.interceptor.LoginSessionCheckInterceptor" />
+			<bean class="kr.co.androider.spring3.common.controller.LoginSessionCheckInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
