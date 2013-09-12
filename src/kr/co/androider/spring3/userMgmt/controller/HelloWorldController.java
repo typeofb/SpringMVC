@@ -7,11 +7,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,17 +62,30 @@ public class HelloWorldController {
             out.println("</script>");
         }*/
 		
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
-		MultipartFile mFile = multipartRequest.getFile("attachFile");
-		String fileName = mFile.getOriginalFilename();
-		String filePath = System.getProperty("java.io.tmpdir") + fileName;
-		File file = new File(filePath);
-		
-		FileCopyUtils.copy(mFile.getInputStream(), new FileOutputStream(file));
-		
-		response.setContentType("text/html; charset=utf-8");
-        PrintWriter out = response.getWriter();
-        out.write("{\"jsonResult\":\"Upload has been done successfully!\", \"fileName\":\"" + fileName + "\"}");
+		if (request instanceof MultipartHttpServletRequest) {
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
+			List<MultipartFile> mFiles = multipartRequest.getFiles("attachFile");
+			
+			ArrayList<String> list = new ArrayList<String>();
+			
+			for (int i = 0; i < mFiles.size(); i++) {
+				MultipartFile mFile = mFiles.get(i);
+				String fileName = mFile.getOriginalFilename();
+				String filePath = System.getProperty("java.io.tmpdir") + fileName;
+				File file = new File(filePath);
+				FileCopyUtils.copy(mFile.getInputStream(), new FileOutputStream(file));
+				list.add(fileName);
+			}
+			
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("jsonResult", "Upload has been done successfully!");
+			map.put("fileName", list);
+			JSONObject jsonObj = new JSONObject(map);
+			
+			response.setContentType("text/html; charset=utf-8");
+		    PrintWriter out = response.getWriter();
+			out.print(jsonObj);
+		}
     }
 	
 	@RequestMapping("/fileDownload")
