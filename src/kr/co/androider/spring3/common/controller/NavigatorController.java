@@ -86,10 +86,15 @@ public class NavigatorController {
 				sidebar.add(temp3.get(2));
 				targetController = "contact.do";
 				break;
-			default:
+			case 8:
 				List<Map> temp4 = new NavigatorVo().retrieveSidebar();
 				sidebar.add(temp4.get(3));
 				targetController = "report.do";
+				break;
+			case 9:
+				List<Map> temp5 = new NavigatorVo().retrieveSidebar();
+				sidebar.add(temp5.get(4));
+				targetController = "sms.do";
 				break;
 			}
 		}

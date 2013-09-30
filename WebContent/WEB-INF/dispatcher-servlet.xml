@@ -26,12 +26,16 @@
 		<property name="mappings">
 			<props>
 				<prop key="report.do">redirectReport</prop>
+				<prop key="sms.do">redirectSms</prop>
 			</props>
 		</property>
 	</bean>
 	<!-- calling jsp without a controller -->
 	<bean name="redirectReport" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="report" />
+	</bean>
+	<bean name="redirectSms" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="sms" />
 	</bean>
 	<!-- another way of ParameterizableViewController -->
 	<!-- <mvc:view-controller path="report.do" view-name="report" /> -->

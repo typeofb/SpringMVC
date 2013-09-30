@@ -25,5 +25,8 @@
 	<definition name="report" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/report.jsp" />
 	</definition>
+	<definition name="sms" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/sms.jsp" />
+	</definition>
 
 </tiles-definitions>

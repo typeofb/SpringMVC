@@ -136,10 +136,15 @@ public class NavigatorVo {
 		mapB4.put("menuId", "8");
 		mapB4.put("menuName", "Report Page");
 		mapB4.put("parentMenuId", "1");
+		Map<String, String> mapB5 = new HashMap<String, String>();
+		mapB5.put("menuId", "9");
+		mapB5.put("menuName", "SMS 발송");
+		mapB5.put("parentMenuId", "1");
 		sidebar.add(mapB1);
 		sidebar.add(mapB2);
 		sidebar.add(mapB3);
 		sidebar.add(mapB4);
+		sidebar.add(mapB5);
 		
 		return sidebar;
 	}
