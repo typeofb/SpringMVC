@@ -2,6 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <select>
 	<c:forEach var="x" items="${result}">
-		<option value="${x.LOC_CD}" selected>${x.LOC_NM}</option>
+		<option value="${x.LOC_CD}" <c:if test="${x.LOC_CD eq selected}">selected</c:if>>${x.LOC_NM}</option>
 	</c:forEach>
 </select>
