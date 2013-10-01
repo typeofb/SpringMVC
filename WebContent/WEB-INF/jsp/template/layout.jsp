@@ -13,7 +13,7 @@
 		font-family:Tahoma, sans-serif;
 		font-size:12px;
 	}
-	#sidebar		{width:175px; height:500px; float:left; background:url(image/left_line.gif) repeat-y right top;
+	#sidebar	{width:175px; height:500px; float:left; background:url(image/left_line.gif) repeat-y right top;
 		font-family:Monaco, Verdana, Sans-serif;
 		font-size:16px;
 		color:#002166;
