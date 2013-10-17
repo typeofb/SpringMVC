@@ -1,8 +1,8 @@
 package kr.co.androider.spring3.serviceMgmt.vo;
 
-public class AppVo {
+public class AppVO {
     
-    public AppVo() {}
+    public AppVO() {}
     
     private String appId;
     private String appName;

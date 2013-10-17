@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.androider.spring3.serviceMonitoring.service.IContactService;
-import kr.co.androider.spring3.serviceMonitoring.vo.ContactVo;
+import kr.co.androider.spring3.serviceMonitoring.vo.ContactVO;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +31,11 @@ public class ContactController {
         // 토큰 생성
         saveToken.setToken(request);
         
-        return new ModelAndView("contact", "command", new ContactVo());
+        return new ModelAndView("contact", "command", new ContactVO());
     }
     
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
-    public ModelAndView addContact(@ModelAttribute("contact") ContactVo ContactVo, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView addContact(@ModelAttribute("contact") ContactVO ContactVO, HttpServletRequest request, HttpServletResponse response) {
         
     	logger.info("console - debug level /addContact! ");
     	
@@ -48,8 +48,8 @@ public class ContactController {
         	return new ModelAndView("redirect:/");
     	}
         
-        ContactVo contact = new ContactVo();
-        contact = iContactService.changeInfo(ContactVo);
+        ContactVO contact = new ContactVO();
+        contact = iContactService.changeInfo(ContactVO);
         
         return new ModelAndView("contact", "command", contact);
     }

@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.androider.spring3.common.vo.NavigatorVo;
+import kr.co.androider.spring3.common.vo.NavigatorVO;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +30,9 @@ public class NavigatorController {
 		// 초기 화면
 		if (request.getParameter("menuId") == null && request.getParameter("parentMenuId") == null) {
 			
-			menu = new NavigatorVo().retrieveMenu();
+			menu = new NavigatorVO().retrieveMenu();
 			
-			sidebar = new NavigatorVo().retrieveSidebar();
+			sidebar = new NavigatorVO().retrieveSidebar();
 			
 			targetController = "hello.do";
 		}
@@ -40,25 +40,25 @@ public class NavigatorController {
 		// 헤더 메뉴 클릭
 		else if (request.getParameter("parentMenuId") == null || request.getParameter("parentMenuId").equals("")) {
 			
-			menu = new NavigatorVo().retrieveMenu();
+			menu = new NavigatorVO().retrieveMenu();
 			
 			switch (Integer.parseInt(request.getParameter("menuId"))) {
 			case 1:
-				sidebar = new NavigatorVo().retrieveSidebar();
+				sidebar = new NavigatorVO().retrieveSidebar();
 				targetController = "hello.do";
 				break;
 			case 2:
-				List<Map> temp2 = new NavigatorVo().retrieveSidebar();
+				List<Map> temp2 = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp2.get(1));
 				targetController = "app.do";
 				break;
 			case 3:
-				List<Map> temp3 = new NavigatorVo().retrieveSidebar();
+				List<Map> temp3 = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp3.get(2));
 				targetController = "contact.do";
 				break;
 			default:
-				List<Map> temp4 = new NavigatorVo().retrieveSidebar();
+				List<Map> temp4 = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp4.get(3));
 				targetController = "report.do";
 				break;
@@ -68,33 +68,38 @@ public class NavigatorController {
 		// 사이드바 클릭
 		else {
 			
-			menu = new NavigatorVo().retrieveMenu();
+			menu = new NavigatorVO().retrieveMenu();
 			
 			switch (Integer.parseInt(request.getParameter("menuId"))) {
 			case 5:
-				List<Map> temp = new NavigatorVo().retrieveSidebar();
+				List<Map> temp = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp.get(0));
 				targetController = "hello.do";
 				break;
 			case 6:
-				List<Map> temp2 = new NavigatorVo().retrieveSidebar();
+				List<Map> temp2 = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp2.get(1));
 				targetController = "app.do";
 				break;
 			case 7:
-				List<Map> temp3 = new NavigatorVo().retrieveSidebar();
+				List<Map> temp3 = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp3.get(2));
 				targetController = "contact.do";
 				break;
 			case 8:
-				List<Map> temp4 = new NavigatorVo().retrieveSidebar();
+				List<Map> temp4 = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp4.get(3));
 				targetController = "report.do";
 				break;
 			case 9:
-				List<Map> temp5 = new NavigatorVo().retrieveSidebar();
+				List<Map> temp5 = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp5.get(4));
 				targetController = "sms.do";
+				break;
+			case 10:
+				List<Map> temp6 = new NavigatorVO().retrieveSidebar();
+				sidebar.add(temp6.get(5));
+				targetController = "employee.do";
 				break;
 			}
 		}

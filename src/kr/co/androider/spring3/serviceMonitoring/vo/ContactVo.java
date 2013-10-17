@@ -1,6 +1,6 @@
 package kr.co.androider.spring3.serviceMonitoring.vo;
 
-public class ContactVo {
+public class ContactVO {
     
     private String firstname;
     private String lastname;

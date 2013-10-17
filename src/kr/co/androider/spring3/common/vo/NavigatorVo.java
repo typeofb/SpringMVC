@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class NavigatorVo {
+public class NavigatorVO {
 	
-	public NavigatorVo() {}
+	public NavigatorVO() {}
 	
 	private int menuId;
 	private String menuName;
@@ -140,11 +140,16 @@ public class NavigatorVo {
 		mapB5.put("menuId", "9");
 		mapB5.put("menuName", "SMS 발송");
 		mapB5.put("parentMenuId", "1");
+		Map<String, String> mapB6 = new HashMap<String, String>();
+		mapB6.put("menuId", "10");
+		mapB6.put("menuName", "사원 정보");
+		mapB6.put("parentMenuId", "1");
 		sidebar.add(mapB1);
 		sidebar.add(mapB2);
 		sidebar.add(mapB3);
 		sidebar.add(mapB4);
 		sidebar.add(mapB5);
+		sidebar.add(mapB6);
 		
 		return sidebar;
 	}

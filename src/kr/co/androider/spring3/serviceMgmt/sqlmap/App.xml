@@ -5,7 +5,7 @@
 <!-- namespace에 interface로 정의된 DAO를 정확히 명시해주어야 한다 -->
 <mapper namespace="kr.co.androider.spring3.serviceMgmt.dao.AppDao">
 
-	<resultMap id="appResult" type="AppVo">
+	<resultMap id="appResult" type="AppVO">
 		<result property="appId" column ="APP_ID"/>
 		<result property="appPkgName" column ="APP_PKG_NAME"/>
 		<result property="appSize" column ="APP_SIZE"/>
@@ -17,7 +17,7 @@
 		]]>
 	</select>
 	
-	<insert id="createApp" parameterType="kr.co.androider.spring3.serviceMgmt.vo.AppVo">
+	<insert id="createApp" parameterType="kr.co.androider.spring3.serviceMgmt.vo.AppVO">
 		INSERT INTO TB_CPM_APP_BAS (
 			APP_ID,
 			APP_NAME,
