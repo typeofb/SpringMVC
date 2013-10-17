@@ -1,8 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- commons-validator tag lib 선언 -->
 <%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator"%>
 <!-- for including generated Javascript Code(in validation-rules.xml) -->
@@ -10,11 +6,6 @@
 <!-- for including generated Javascript Code(validateEmployee(), formName:validator.xml에서 정의한 form의 이름) -->
 <validator:javascript formName="employee" staticJavascript="false" xhtml="true" cdata="false" />
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>사원 정보</title>
 <script src="js/jquery-1.4.3.min.js"></script>
 <script type="text/javascript">
 	function save(form) {
@@ -25,50 +16,47 @@
 		}
 	}
 </script>
-</head>
-<body>
-	<form:form commandName="employeeCommand" action="saveEmployee.do">
-		<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
-		<table>
-			<tr>
-				<th>이름</th>
-				<td><form:input path="name" size="20" />
-					<form:errors path="name" />
-				</td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td><form:input path="password" size="20" />
-				</td>
-			</tr>
-			<tr>
-				<th>나이</th>
-				<td><form:input path="age" size="20" />
-					<form:errors path="age" />
-				</td>
-			</tr>
-			<tr>
-				<th>전화번호</th>
-				<td><form:input path="phone" size="20" />
-					<form:errors path="phone" />
-				</td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td><form:input path="email" size="20" />
-					<form:errors path="email" />
-				</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<td>
-					<!--<input type="submit"/>-->
-					<input type="button" value="SAVE" onclick="save(this.form)" /> <!-- client-validation을 위해 바로 submit하지 않고 먼저 validateEmployee 함수를 호출 -->
-					<input type="button" value="LIST" onclick="location.href='/easycompany/employeeList.do'" />
-				</td>
-			</tr>
-		</table>
-	</form:form>
-</body>
-</html>
+
+<form:form commandName="employeeCommand" action="saveEmployee.do">
+	<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
+	<table>
+		<tr>
+			<th>이름</th>
+			<td><form:input path="name" size="20" />
+				<form:errors path="name" />
+			</td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><form:input path="password" size="20" />
+			</td>
+		</tr>
+		<tr>
+			<th>나이</th>
+			<td><form:input path="age" size="20" />
+				<form:errors path="age" />
+			</td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><form:input path="phone" size="20" />
+				<form:errors path="phone" />
+			</td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><form:input path="email" size="20" />
+				<form:errors path="email" />
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td>
+				<!--<input type="submit"/>-->
+				<input type="button" value="SAVE" onclick="save(this.form)" /> <!-- client-validation을 위해 바로 submit하지 않고 먼저 validateEmployee 함수를 호출 -->
+				<input type="button" value="LIST" onclick="location.href='/easycompany/employeeList.do'" />
+			</td>
+		</tr>
+	</table>
+</form:form>
