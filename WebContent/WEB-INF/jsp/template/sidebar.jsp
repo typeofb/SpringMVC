@@ -6,15 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	#sidebar {
-		margin:0;
-		padding:0;
-		list-style-type:none;
-	}
-	#sidebar li {background:url(image/bullet_pro_red01.gif) no-repeat 5% center; padding-left:20px;}
-    #sidebar li a:hover {background-color:#2a75b5; color:#e7f1fa;}
-</style>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
 <script type="text/javascript">
 	function fnMovePage(menuId, parentMenuId) {
 		document.sidebarForm.menuId.value = menuId;

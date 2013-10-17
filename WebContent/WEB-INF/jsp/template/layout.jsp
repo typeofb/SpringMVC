@@ -6,36 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spring 3.0 MVC</title>
-<style type="text/css">
-	#container	{width:1000px; height:auto; margin:0 auto;}
-	/* background: [-color] [-image] [-repeat] [-attachment] [-position]; */
-	#header		{width:auto; height:63px;
-		font-family:Tahoma, sans-serif;
-		font-size:12px;
-	}
-	#sidebar	{width:175px; height:500px; float:left; background:url(image/left_line.gif) repeat-y right top;
-		font-family:Monaco, Verdana, Sans-serif;
-		font-size:16px;
-		color:#002166;
-		line-height:2;
-	}
-	#body		{width:auto; height:auto; float:left;
-		font-family:Lucida Grande, Verdana, Sans-serif;
-		font-size:14px;
-		color:#4F5155;
-	}
-	#footer		{width:auto; height:30px; clear:both; background:url(image/left_line.gif) repeat-x left top;
-		font-family:Georgia, serif;
-		font-size:12px;
-		line-height:2em;
-		letter-spacing:1px;
-		text-align:center;
-	}
-	a:link {text-decoration:none; color:#000000;}
-	a:visited {text-decoration:none; color:#000000;}
-	a:hover {text-decoration:underline; color:#000000;}
-	a:active {text-decoration:none; color:#000000;}
-</style>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
 </head>
 <body>
 	<div id="container">

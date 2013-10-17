@@ -6,22 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	#masterHeader {margin:7px; background:url(image/top_bg_c_11.gif) no-repeat right top;}
-	#topNavi {width:2000px; height:44px; background:url(image/top_bg_l_11.gif) no-repeat left top;}
-	#mainMenu {margin:0px; padding:0px 6px 0px 16px;}
-	#mainMenu li {
-		background:url(image/m_tab_l_on1.gif) no-repeat;
-		padding:10px 0px 10px 15px;
-		list-style:none;
-		float:left;
-	}
-	#mainMenu li span {
-		background:url(image/m_tab_r_on1.gif) no-repeat right top;
-		padding:10px 30px 10px 20px;
-	}
-	#mainMenu li span a {color:#AE0141; font-weight:bold;}
-</style>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
 <script type="text/javascript">
 	// 추후에 menuNo를 db에서 검색
 	function fnMoveHeader(menuId, parentMenuId) {
