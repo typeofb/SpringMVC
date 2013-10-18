@@ -32,8 +32,10 @@ public class NavigatorController {
 			
 			menu = new NavigatorVO().retrieveMenu();
 			
-			sidebar = new NavigatorVO().retrieveSidebar();
-			
+			List<Map> temp = new NavigatorVO().retrieveSidebar();
+			sidebar.add(temp.get(0));
+			sidebar.add(temp.get(4));
+			sidebar.add(temp.get(5));
 			targetController = "hello.do";
 		}
 		
@@ -44,7 +46,10 @@ public class NavigatorController {
 			
 			switch (Integer.parseInt(request.getParameter("menuId"))) {
 			case 1:
-				sidebar = new NavigatorVO().retrieveSidebar();
+				List<Map> temp = new NavigatorVO().retrieveSidebar();
+				sidebar.add(temp.get(0));
+				sidebar.add(temp.get(4));
+				sidebar.add(temp.get(5));
 				targetController = "hello.do";
 				break;
 			case 2:
@@ -74,6 +79,8 @@ public class NavigatorController {
 			case 5:
 				List<Map> temp = new NavigatorVO().retrieveSidebar();
 				sidebar.add(temp.get(0));
+				sidebar.add(temp.get(4));
+				sidebar.add(temp.get(5));
 				targetController = "hello.do";
 				break;
 			case 6:
@@ -93,11 +100,15 @@ public class NavigatorController {
 				break;
 			case 9:
 				List<Map> temp5 = new NavigatorVO().retrieveSidebar();
+				sidebar.add(temp5.get(0));
 				sidebar.add(temp5.get(4));
+				sidebar.add(temp5.get(5));
 				targetController = "sms.do";
 				break;
 			case 10:
 				List<Map> temp6 = new NavigatorVO().retrieveSidebar();
+				sidebar.add(temp6.get(0));
+				sidebar.add(temp6.get(4));
 				sidebar.add(temp6.get(5));
 				targetController = "employee.do";
 				break;
