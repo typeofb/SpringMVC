@@ -53,6 +53,7 @@
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
 			<include-prelude>/WEB-INF/jsp/common/common.jspf</include-prelude>
+			<trim-directive-whitespaces>true</trim-directive-whitespaces>  <!-- JSTL 사용시 생기는 공백제거 -->
 		</jsp-property-group>
 	</jsp-config>
 </web-app>
