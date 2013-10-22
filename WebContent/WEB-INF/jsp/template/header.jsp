@@ -16,8 +16,15 @@
 				<input type="hidden" name="menuId" />
 				<input type="hidden" name="parentMenuId" />
 				
-				<span style="float:left; margin-left:10px;"><%= session.getAttribute("username") %></span>
-				<span style="float:right; margin-right:10px;"><a href="logout.do">Logout</a></span><br />
+				<div id="gnb">
+					<span><a href="javascript:fnMoveHeader('1', '');">Home</a></span>
+					<ul>
+						<li><a href="logout.do">Logout</a></li>
+						<li>&nbsp;|&nbsp;</li>
+						<li><%= session.getAttribute("username") %>님이 로그인 하셨습니다</li>
+					</ul>
+				</div>
+				
 				<div id="masterHeader">
 					<div id="topNavi">
 						<ul id="mainMenu">
