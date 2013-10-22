@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style type="text/css">
-#leftDiv	{float:left;}
-#centerDiv	{float:left; padding-top:50px;}
-#rightDiv	{float:left;}
+	#leftDiv	{float:left;}
+	#centerDiv	{float:left; padding-top:50px;}
+	#rightDiv	{float:left;}
 </style>
 <script language="JavaScript" src="js/jquery-1.4.3.min.js"></script>
 <script type="text/javascript">

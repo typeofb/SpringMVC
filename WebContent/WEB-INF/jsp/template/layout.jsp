@@ -9,13 +9,17 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header"><tiles:insertAttribute name="header" />
+		<div id="header">
+			<tiles:insertAttribute name="header" />
 		</div>
-		<div id="sidebar"><tiles:insertAttribute name="sidebar" />
+		<div id="sidebar">
+			<tiles:insertAttribute name="sidebar" />
 		</div>
-		<div id="body"><tiles:insertAttribute name="body" />
+		<div id="body">
+			<tiles:insertAttribute name="body" />
 		</div>
-		<div id="footer"><tiles:insertAttribute name="footer" />
+		<div id="footer">
+			<tiles:insertAttribute name="footer" />
 		</div>
 	</div>
 </body>

@@ -8,6 +8,15 @@
 
 <script src="js/jquery-1.4.3.min.js"></script>
 <script type="text/javascript">
+	window.onload = function() {
+		$(":input").each(function(){
+			if ($(this).val() == "0") {
+				//alert($(this).attr("id"));  // age, phone
+				$(this).val("");
+			}
+		});
+	};
+
 	function save(form) {
 		if (!validateEmployee(form)) {
 			return;
@@ -55,7 +64,7 @@
 			<td>
 				<!--<input type="submit"/>-->
 				<input type="button" value="SAVE" onclick="save(this.form)" /> <!-- client-validation을 위해 바로 submit하지 않고 먼저 validateEmployee 함수를 호출 -->
-				<input type="button" value="LIST" onclick="location.href='/easycompany/employeeList.do'" />
+				<input type="button" value="LIST" onclick="location.href='<c:url value='employee.do' />'" />
 			</td>
 		</tr>
 	</table>
