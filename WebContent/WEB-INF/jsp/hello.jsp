@@ -7,7 +7,7 @@
 	/*$(document).ready(function() {
 		$('#uploadForm').ajaxForm({
 			beforeSubmit:function() {
-				var result = document.getElementById("result").innerHTML = "<img src='image/loading.gif' alt='' />";
+				var result = document.getElementById("result").innerHTML = "<img src='images/loading.gif' alt='' />";
 				result.display = "block";
 			},
 			success:function(data) {
@@ -54,7 +54,7 @@
 	function fnUpload() {
 		var options = {
 			beforeSubmit:function() {
-				var result = document.getElementById("result").innerHTML = "<img src='image/loading.gif' alt='' />";
+				var result = document.getElementById("result").innerHTML = "<img src='images/loading.gif' alt='' />";
 				result.display = "block";
 			},
 			success:function(data) {
