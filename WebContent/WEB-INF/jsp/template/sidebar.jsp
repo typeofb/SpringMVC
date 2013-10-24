@@ -3,7 +3,7 @@
 				function fnMovePage(menuId, parentMenuId) {
 					document.sidebarForm.menuId.value = menuId;
 					document.sidebarForm.parentMenuId.value = parentMenuId;
-			//		document.sidebarForm.action = "navigator.do";
+					document.sidebarForm.action = "navigator.do";
 					document.sidebarForm.submit();
 				}
 			</script>

@@ -4,7 +4,7 @@
 				function fnMoveHeader(menuId, parentMenuId) {
 					document.headerForm.menuId.value = menuId;
 					document.headerForm.parentMenuId.value = parentMenuId;
-			//		document.headerForm.action = "navigator.do";
+					document.headerForm.action = "navigator.do";
 					document.headerForm.submit();
 				}
 			
