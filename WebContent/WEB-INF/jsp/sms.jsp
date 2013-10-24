@@ -81,7 +81,10 @@ function remove() {
 }
 
 function send() {
-	if ($("#selectRcv option").size() == 0) return;
+	if ($("#selectRcv option").size() == 0) {
+		alert("수신자를 추가해 주세요");
+		return;
+	}
 	
 	$.ajax({
 		url: "smsSend.do",
@@ -90,7 +93,7 @@ function send() {
 		cache : false,
 		dataType : "html",
 		success: function(data) {
-			$("#smsForm").html(data);
+			alert(data);
 		}
 	});
 }
@@ -148,7 +151,7 @@ function send() {
 	</div>
 	<div id="rightDiv">
 		<select multiple id="selectRcv" style="width:150px; height:120px; overflow-y:scroll;"></select>
-		<div><button onclick="send();">발송</button></div>
+		<div><input type="button" onclick="send();" value="발송" /></div>
 	</div>
 	<div>
 		<table id="tblSend"></table>
