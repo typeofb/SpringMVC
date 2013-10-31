@@ -1,16 +1,21 @@
 package kr.co.androider.spring3.commonMgmt.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.PostMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -66,5 +71,42 @@ public class ReportController {
 		mav.addObject("selected", 4030);
 		mav.setViewName("reportSelect");
 		return mav;
+	}
+	
+	// 다른 도메인에 접근할 수 없는 Ajax 보안 제약사항을 우회하기 위한 Proxy 프로그램
+	@RequestMapping(value="reportProxy", method=RequestMethod.POST)
+	public void reportProxy(HttpServletResponse response,
+			@RequestParam(value="value", required=true) String value) throws HttpException, IOException {
+		System.out.println(value);
+		
+		String url = "http://www.e-kepco.co.kr/WEATHER/AREA_HQ_MINIWEATHER/tot.php?gubun=" + value;
+		HttpClient client = new HttpClient();
+		PostMethod method = new PostMethod(url);
+		
+		int statusCode = client.executeMethod(method);
+		
+		if (statusCode == HttpStatus.SC_OK) {
+			StringBuilder strData = new StringBuilder();
+			InputStream is = method.getResponseBodyAsStream();
+			while (true) {
+				int data = is.read();
+				if (data == -1) {
+					break;
+				}
+				strData.append((char)data);
+			}
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println(strData.toString());
+			out.flush();
+		} else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('정상적으로 처리되지 않았습니다')");
+			out.println("location='login.do'");
+			out.println("</script>");
+			out.flush();
+		}
 	}
 }

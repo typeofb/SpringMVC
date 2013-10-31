@@ -45,7 +45,7 @@
 		<h4>Report Index Page</h4><br />
 		<div>Ajax Move for this body</div><br />
 		<input type="text" name="txtInput" />
-		<input type="button" id="btnDetail" value="Click" />
+		<input type="button" id="btnDetail" value="Ajax Proxy" />
 		<div id="selectTag"></div>
 	</form>
 </div>
