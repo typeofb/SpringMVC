@@ -38,7 +38,30 @@
 			};
 		</c:forEach>
 		grid = new Slick.Grid($("#myGrid"), data, columns, options);
+		
+		$("table tr td").filter(function(){
+			if ($(this).text() == "총용량") {
+				$(this).css("color", "red");
+			}
+		});
+		$("table tr td:empty").css("background-color", "black");
 	})
 </script>
 
 <div id="myGrid" style="width:600px; height:500px;"></div>
+<table class="table1" width="585px">
+	<c:set var="sumAppSize" value="0" />
+	<c:forEach items="${appList}" var="item" varStatus="status">
+		<c:set var="sumAppSize" value="${sumAppSize + item.appSize}" />
+	</c:forEach>
+	<tr>
+		<td>총용량</td>
+		<td>com.lge.lglink.group</td>
+		<td>${sumAppSize}</td>
+	</tr>
+	<tr>
+		<td>비고</td>
+		<td>com.lge.lglink.group</td>
+		<td></td>
+	</tr>
+</table>

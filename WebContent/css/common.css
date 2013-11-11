@@ -14,7 +14,7 @@ li {list-style:none;}
 	font-family:Tahoma, sans-serif;
 	font-size:12px;
 }
-#sidebar	{width:175px; height:500px; float:left; background:url(../images/left_line.gif) repeat-y right top;
+#sidebar	{width:175px; height:550px; float:left; background:url(../images/left_line.gif) repeat-y right top;
 	font-family:Monaco, Verdana, Sans-serif;
 	font-size:16px;
 	color:#002166;
@@ -39,7 +39,7 @@ li {list-style:none;}
 #gnb ul {overflow:hidden;}
 #gnb li {float:right;}
 #masterHeader {background:url(../images/top_bg_c_11.gif) no-repeat right top;}
-#topNavi {width:2000px; height:44px; background:url(../images/top_bg_l_11.gif) no-repeat left top;}
+#topNavi {width:1000px; height:44px; background:url(../images/top_bg_l_11.gif) no-repeat left top;}
 #mainMenu {margin:0px; padding:0px 6px 0px 16px;}
 #mainMenu li {
 	background:url(../images/m_tab_l_on1.gif) no-repeat;
@@ -60,3 +60,6 @@ li {list-style:none;}
 #sidebar li {background:url(../images/bullet_pro_red01.gif) no-repeat 5% center; padding-left:20px;}
 #sidebar li a:hover {background-color:#2a75b5; color:#e7f1fa;}
 
+/* body */
+.table1 {table-layout:fixed;}
+.table1 td {border-top:solid 1px #cdd6d8; border-right:solid 1px #cdd6d8;}
