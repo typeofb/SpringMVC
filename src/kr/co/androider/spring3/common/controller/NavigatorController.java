@@ -29,89 +29,49 @@ public class NavigatorController {
 		
 		// 초기 화면
 		if (request.getParameter("menuId") == null && request.getParameter("parentMenuId") == null) {
-			
 			menu = new NavigatorVO().retrieveMenu();
 			
 			List<Map> temp = new NavigatorVO().retrieveSidebar();
-			sidebar.add(temp.get(0));
-			sidebar.add(temp.get(4));
-			sidebar.add(temp.get(5));
-			targetController = "hello.do";
+			for (int i = 0; i < temp.size(); i++) {
+				if ("0001".equals(temp.get(i).get("parentMenuId"))) {
+					sidebar.add(temp.get(i));
+					if ("1001".equals(temp.get(i).get("menuId"))) {
+						targetController = temp.get(i).get("controllerName").toString();
+					}
+				}
+			}
 		}
 		
 		// 헤더 메뉴 클릭
 		else if (request.getParameter("parentMenuId") == null || request.getParameter("parentMenuId").equals("")) {
-			
 			menu = new NavigatorVO().retrieveMenu();
 			
-			switch (Integer.parseInt(request.getParameter("menuId"))) {
-			case 1:
-				List<Map> temp = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp.get(0));
-				sidebar.add(temp.get(4));
-				sidebar.add(temp.get(5));
-				targetController = "hello.do";
-				break;
-			case 2:
-				List<Map> temp2 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp2.get(1));
-				targetController = "app.do";
-				break;
-			case 3:
-				List<Map> temp3 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp3.get(2));
-				targetController = "contact.do";
-				break;
-			default:
-				List<Map> temp4 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp4.get(3));
-				targetController = "report.do";
-				break;
+			List<Map> temp = new NavigatorVO().retrieveSidebar();
+			for (int i = 0; i < temp.size(); i++) {
+				if (request.getParameter("menuId").equals(temp.get(i).get("parentMenuId"))) {
+					sidebar.add(temp.get(i));
+				}
+			}
+			
+			for (int i = 0; i < menu.size(); i++) {
+				if (request.getParameter("menuId").equals(menu.get(i).get("menuId"))) {
+					targetController = menu.get(i).get("controllerName").toString();
+				}
 			}
 		}
 		
 		// 사이드바 클릭
 		else {
-			
 			menu = new NavigatorVO().retrieveMenu();
 			
-			switch (Integer.parseInt(request.getParameter("menuId"))) {
-			case 5:
-				List<Map> temp = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp.get(0));
-				sidebar.add(temp.get(4));
-				sidebar.add(temp.get(5));
-				targetController = "hello.do";
-				break;
-			case 6:
-				List<Map> temp2 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp2.get(1));
-				targetController = "app.do";
-				break;
-			case 7:
-				List<Map> temp3 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp3.get(2));
-				targetController = "contact.do";
-				break;
-			case 8:
-				List<Map> temp4 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp4.get(3));
-				targetController = "report.do";
-				break;
-			case 9:
-				List<Map> temp5 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp5.get(0));
-				sidebar.add(temp5.get(4));
-				sidebar.add(temp5.get(5));
-				targetController = "sms.do";
-				break;
-			case 10:
-				List<Map> temp6 = new NavigatorVO().retrieveSidebar();
-				sidebar.add(temp6.get(0));
-				sidebar.add(temp6.get(4));
-				sidebar.add(temp6.get(5));
-				targetController = "employee.do";
-				break;
+			List<Map> temp = new NavigatorVO().retrieveSidebar();
+			for (int i = 0; i < temp.size(); i++) {
+				if (request.getParameter("parentMenuId").equals(temp.get(i).get("parentMenuId"))) {
+					sidebar.add(temp.get(i));
+					if (request.getParameter("menuId").equals(temp.get(i).get("menuId"))) {
+						targetController = temp.get(i).get("controllerName").toString();
+					}
+				}
 			}
 		}
 		
