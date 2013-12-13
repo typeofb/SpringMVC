@@ -31,5 +31,8 @@
 	<definition name="employee" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/employee.jsp" />
 	</definition>
+	<definition name="highcharts" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/highcharts.jsp" />
+	</definition>
 
 </tiles-definitions>
