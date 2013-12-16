@@ -35,11 +35,15 @@ public class ReportController {
 	}
 	
 	@RequestMapping("/reportDetail")
-	public ModelAndView reportDetail(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView reportDetail(@RequestParam HashMap<Object, Object> param) {
 
 		System.out.println("log - reportDetail");
 		
-		return new ModelAndView("reportDetail", "message", request.getParameter("result"));
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("message", param.get("txtInput"));
+		mav.addObject("result", param.get("result"));
+		mav.setViewName("commonMgmt/reportDetail");
+		return mav;
 	}
 	
 	@RequestMapping("/reportSelect")
@@ -69,7 +73,7 @@ public class ReportController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("result", list);
 		mav.addObject("selected", 4030);
-		mav.setViewName("reportSelect");
+		mav.setViewName("commonMgmt/reportSelect");
 		return mav;
 	}
 	

@@ -22,8 +22,9 @@ $(function() {
 	}
 });
 </script>
-<h4>Report Detail Page</h4><br />
+<h4>Report Detail Page</h4>
 <div>${message}</div>
+<div>${result}</div>
 <select>
 	<option value="1">서울</option>
 	<option value="2">경남지역본부</option>

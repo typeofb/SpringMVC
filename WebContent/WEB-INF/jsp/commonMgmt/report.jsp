@@ -27,7 +27,7 @@
 				url: "reportAjax.do",
 				data: $("#reportForm").serializeArray(),
 				success: function(data) {
-					document.reportForm.result.value = data;
+					document.reportForm.result.value = $("select[id='selLoc'] option:selected").text();
 					$("#indexPage").load("reportDetail.do", $("#reportForm").serializeArray());
 				}
 			});
@@ -58,8 +58,8 @@
 	<form id="reportForm" name="reportForm" method="post">
 		<input type="hidden" name="token" value="${sessionScope.token}" />
 		<input type="hidden" name="result" />
-		<h4>Report Index Page</h4><br />
-		<div>Ajax Move for this body</div><br />
+		<h4>Report Index Page</h4>
+		<div>Ajax Move for this body</div>
 		<input type="text" name="txtInput" />
 		<input type="button" id="btnDetail" value="Ajax Proxy" />
 		<div id="selectTag"></div>
