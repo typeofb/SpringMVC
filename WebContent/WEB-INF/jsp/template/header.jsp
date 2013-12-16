@@ -9,6 +9,11 @@
 				}
 			
 				function fnMenuToggle(obj) { }
+				
+				function fnLogout() {
+					document.headerForm.action = "logout.do";
+					document.headerForm.submit();
+				}
 			</script>
 			
 			<form name="headerForm" method="post">
@@ -19,7 +24,7 @@
 				<div id="gnb">
 					<span><a href="javascript:fnMoveHeader('1', '');">Home</a></span>
 					<ul>
-						<li><a href="logout.do">Logout</a></li>
+						<li><a href="javascript:fnLogout();">Logout</a></li>
 						<li>&nbsp;|&nbsp;</li>
 						<li><%= session.getAttribute("username") %>님이 로그인 하셨습니다</li>
 					</ul>

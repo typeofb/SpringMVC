@@ -28,7 +28,7 @@ public class EmployeeController {
 	
 	@RequestMapping("/employee")
 	public ModelAndView employee() {
-		return new ModelAndView("employee", "employeeCommand", new EmployeeVO());
+		return new ModelAndView("userMgmt/employee", "employeeCommand", new EmployeeVO());
 	}
 	
 	@RequestMapping("/saveEmployee")

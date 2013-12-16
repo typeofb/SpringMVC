@@ -14,7 +14,7 @@ public class LogoutController {
     
     @RequestMapping("/logout")
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
-        
+        System.out.println("logout");
         HttpSession session = request.getSession();
         session.invalidate();
         

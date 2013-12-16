@@ -30,7 +30,7 @@ public class LoginController {
 	        session.setAttribute("username", request.getParameter("username"));
 	        session.setAttribute("token", new BigInteger(165, new SecureRandom()).toString(36).toUpperCase());
 	        logger.debug("##### token = " + session.getAttribute("token") + " #####");
-	        return new ModelAndView("login");
+	        return new ModelAndView("common/login");
 	    } else {
 	    	// 메시지박스를 출력하고 스크립트를 실행하는 ModelAndView 객체를 리턴
             View view = new AbstractView() {

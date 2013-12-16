@@ -19,7 +19,7 @@ public class HighchartsController {
 	@RequestMapping("/highcharts")
 	public String highcharts(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("log - highcharts");
-		return "highcharts";
+		return "commonMgmt/highcharts";
 	}
 	
 	@RequestMapping("/highchartsAjax")

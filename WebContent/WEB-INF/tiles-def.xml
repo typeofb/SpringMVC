@@ -13,25 +13,25 @@
 		<put-attribute name="footer" value="/WEB-INF/jsp/template/footer.jsp" />
 	</definition>
 
-	<definition name="hello" extends="base_layout">
+	<definition name="userMgmt/hello" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/userMgmt/hello.jsp" />
 	</definition>
-	<definition name="app" extends="base_layout">
+	<definition name="serviceMgmt/app" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/serviceMgmt/app.jsp" />
 	</definition>
-	<definition name="contact" extends="base_layout">
+	<definition name="serviceMonitoring/contact" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/serviceMonitoring/contact.jsp" />
 	</definition>
-	<definition name="report" extends="base_layout">
+	<definition name="commonMgmt/report" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/commonMgmt/report.jsp" />
 	</definition>
-	<definition name="sms" extends="base_layout">
+	<definition name="userMgmt/sms" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/userMgmt/sms.jsp" />
 	</definition>
-	<definition name="employee" extends="base_layout">
+	<definition name="userMgmt/employee" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/userMgmt/employee.jsp" />
 	</definition>
-	<definition name="highcharts" extends="base_layout">
+	<definition name="commonMgmt/highcharts" extends="base_layout">
 		<put-attribute name="body" value="/WEB-INF/jsp/commonMgmt/highcharts.jsp" />
 	</definition>
 

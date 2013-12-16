@@ -32,7 +32,7 @@ public class HelloWorldController {
 		System.out.println("log - helloWorld");
 		String message = "Hello World, Spring 3.0!";
 		System.out.println(message);
-		return new ModelAndView("hello", "message", message);
+		return new ModelAndView("userMgmt/hello", "message", message);
 	}
 	
 	@RequestMapping("/fileUpload")

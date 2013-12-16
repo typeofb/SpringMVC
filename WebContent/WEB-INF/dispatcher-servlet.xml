@@ -33,13 +33,13 @@
 	</bean>
 	<!-- calling jsp without a controller -->
 	<bean name="redirectReport" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="report" />
+		<property name="viewName" value="commonMgmt/report" />
 	</bean>
 	<bean name="redirectSms" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="sms" />
+		<property name="viewName" value="userMgmt/sms" />
 	</bean>
 	<bean name="redirectValidator" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
-		<property name="viewName" value="validator" />
+		<property name="viewName" value="common/validator" />
 	</bean>
 	<!-- another way of ParameterizableViewController -->
 	<!-- <mvc:view-controller path="report.do" view-name="report" /> -->

@@ -31,7 +31,7 @@ public class ContactController {
         // 토큰 생성
         saveToken.setToken(request);
         
-        return new ModelAndView("contact", "command", new ContactVO());
+        return new ModelAndView("serviceMonitoring/contact", "command", new ContactVO());
     }
     
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
@@ -51,6 +51,6 @@ public class ContactController {
         ContactVO contact = new ContactVO();
         contact = iContactService.changeInfo(ContactVO);
         
-        return new ModelAndView("contact", "command", contact);
+        return new ModelAndView("serviceMonitoring/contact", "command", contact);
     }
 }
