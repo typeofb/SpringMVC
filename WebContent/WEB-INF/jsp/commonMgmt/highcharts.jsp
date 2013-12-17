@@ -23,12 +23,12 @@ $(document).ready(function(){
 			enabled: false
 		},
 		title: {
-			text: 'RMU 전력합계',
+			text: 'title',
 			style: {
                 fontSize: '15px',
 	            fontWeight: 'bold',
 	            letterSpacing: '-1px',
-				color: '#0c4da2'
+				color: '#ae0141'
 			}
 		},
 		xAxis: {
@@ -41,7 +41,10 @@ $(document).ready(function(){
 		},
 		yAxis: {
 			title: {
-				text: 'kW'
+				text: 'kW',
+				style: {
+					color: '#ae0141'
+				}
 			},
 			min: 0,
 			labels: {
@@ -74,8 +77,8 @@ $(document).ready(function(){
 				fillColor: {
 					linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
 					stops: [
-						[0, Highcharts.getOptions().colors[0]],
-						[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+						[0, Highcharts.getOptions().colors[3]],
+						[1, Highcharts.Color(Highcharts.getOptions().colors[3]).setOpacity(0).get('rgba')]
 					]
 				},
 				lineWidth: 1,
@@ -130,7 +133,7 @@ $(window).load(function(){
 		success : function(result) {
 			areaChart.hideLoading();
 			var chart = areaChart;
-			chart.setTitle({text: "title"});
+			chart.setTitle({text: "RMU 전력합계"});
 			//chart.xAxis[0].options.tickInterval = 3600 * 1000;
 			var points = JSON.parse(result);
 			var series = chart.series[0];
