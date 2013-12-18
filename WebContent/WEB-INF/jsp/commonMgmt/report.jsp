@@ -8,7 +8,7 @@
 	
 	#tabMenu div {border:1px solid #aaa; background:#f5f5f5; display:none; clear:both; height:320px;}
 </style>
-<script language="JavaScript" src="js/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
 <script>
 	$(function() {
 		fnSelectTag();
