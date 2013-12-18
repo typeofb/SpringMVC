@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -86,7 +87,13 @@ public class ReportController {
 		String url = "http://www.e-kepco.co.kr/WEATHER/AREA_HQ_MINIWEATHER/tot.php?gubun=" + value;
 		HttpClient client = new HttpClient();
 		PostMethod method = new PostMethod(url);
-		
+		/*
+		NameValuePair[] postParams = {
+				new NameValuePair("areaCode", value),
+				new NameValuePair("groupCode", "G03")
+		};
+		method.setRequestBody(postParams);
+		*/
 		int statusCode = client.executeMethod(method);
 		
 		if (statusCode == HttpStatus.SC_OK) {
