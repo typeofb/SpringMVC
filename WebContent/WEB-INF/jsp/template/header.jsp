@@ -22,7 +22,7 @@
 				<input type="hidden" name="parentMenuId" />
 				
 				<div id="gnb">
-					<span><a href="javascript:fnMoveHeader('1', '');">Home</a></span>
+					<span><a href="javascript:fnMoveHeader('1', '0');">Home</a></span>
 					<ul>
 						<li><a href="javascript:fnLogout();">Logout</a></li>
 						<li>&nbsp;|&nbsp;</li>

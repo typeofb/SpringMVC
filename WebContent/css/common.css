@@ -63,3 +63,4 @@ li {list-style:none;}
 /* body */
 .table1 {table-layout:fixed;}
 .table1 td {border-top:solid 1px #cdd6d8; border-right:solid 1px #cdd6d8;}
+.btn {border:1px solid black;}

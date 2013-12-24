@@ -29,7 +29,7 @@ public class ContactController {
         logger.info("console - debug level /contact! ");
         
         // 토큰 생성
-        saveToken.setToken(request);
+//        saveToken.setToken(request);
         
         return new ModelAndView("serviceMonitoring/contact", "command", new ContactVO());
     }
@@ -51,6 +51,6 @@ public class ContactController {
         ContactVO contact = new ContactVO();
         contact = iContactService.changeInfo(ContactVO);
         
-        return new ModelAndView("serviceMonitoring/contact", "command", contact);
+        return new ModelAndView("serviceMonitoring/addContact", "command", contact);
     }
 }
