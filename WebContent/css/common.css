@@ -63,4 +63,105 @@ li {list-style:none;}
 /* body */
 .table1 {table-layout:fixed;}
 .table1 td {border-top:solid 1px #cdd6d8; border-right:solid 1px #cdd6d8;}
-.btn {border:1px solid black;}
+.btn {
+	right:0px;
+	padding:0px;
+	float:right;
+	position:relative;
+}
+.btnB {
+	color:#444444;
+	line-height:24px;
+	padding-right:4px;
+	font-family:'돋움', dotum;
+	font-size:12px;
+	text-decoration:none !important;
+	margin:5px 2px;
+	word-spacing:-1px;
+	display:inline-block;
+	white-space:nowrap;
+	background:url(../images/btn_back.png) no-repeat 100% 0px;
+}
+.btnB span {
+	height:24px;
+	color:#ffffff;
+	line-height:24px;
+	padding:0px 10px 0px 14px;
+	font-family:dotum;
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	background:url(../images/btn_back.png) no-repeat;
+}
+.btnG {
+	color:#444444;
+	line-height:24px;
+	padding-right:4px;
+	font-family:'돋움', dotum;
+	font-size:12px;
+	text-decoration:none !important;
+	margin:5px 2px;
+	word-spacing:-1px;
+	display:inline-block;
+	white-space:nowrap;
+	background:url(../images/btn_back.png) no-repeat 100% -25px;
+}
+.btnG span {
+	height:24px;
+	color:#000000;
+	line-height:24px;
+	padding:0px 10px 0px 14px;
+	font-family:dotum;
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	background:url(../images/btn_back.png) 0px -25px;
+}
+.btnK {
+	color:#444444;
+	line-height:24px;
+	padding-right:4px;
+	font-family:'돋움', dotum;
+	font-size:12px;
+	text-decoration:none !important;
+	margin:5px 2px;
+	word-spacing:-1px;
+	display:inline-block;
+	white-space:nowrap;
+	background:url(../images/btn_back.png) no-repeat 100% -50px;
+}
+.btnK span {
+	height:24px;
+	color:#ffffff;
+	line-height:24px;
+	padding:0px 10px 0px 14px;
+	font-family:dotum;
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	background:url(../images/btn_back.png) 0px -50px;
+}
+.btnT {
+	color:#444444;
+	line-height:24px;
+	padding-right:4px;
+	font-family:'돋움', dotum;
+	font-size:12px;
+	text-decoration:none !important;
+	margin:5px 2px;
+	word-spacing:-1px;
+	display:inline-block;
+	white-space:nowrap;
+	background:url(../images/btn_back.png) no-repeat 100% -75px;
+}
+.btnT span {
+	height:24px;
+	color:#000000;
+	line-height:24px;
+	padding:0px 10px 0px 14px;
+	font-family:dotum;
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	background:url(../images/btn_back.png) 0px -75px;
+}

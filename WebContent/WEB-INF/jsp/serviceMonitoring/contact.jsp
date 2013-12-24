@@ -32,8 +32,9 @@ function fnSubmit() {
 			<td><form:label path="lastname">Telephone</form:label></td>
 			<td><form:input path="telephone" /></td>
 		</tr>
-		<tr>
-			<td colspan="2"><a href="javascript:;" onclick="fnSubmit();"><span class="btn">Add Contact</span></a></td>
-		</tr>
 	</table>
+	<div class="btn"><a class="btnB" href="javascript:;" onclick="fnSubmit();"><span>Add Contact</span></a></div>
+	<div class="btn"><a class="btnG" href="javascript:;" onclick="fnSubmit();"><span>Add Contact</span></a></div>
+	<div class="btn"><a class="btnK" href="javascript:;" onclick="fnSubmit();"><span>Add Contact</span></a></div>
+	<div class="btn"><a class="btnT" href="javascript:;" onclick="fnSubmit();"><span>Add Contact</span></a></div>
 </form:form>
