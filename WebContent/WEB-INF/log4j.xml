@@ -10,24 +10,26 @@
 	</appender>
 
 	<!-- 파일로 출력하는 형태를 정의함 -->
-	<appender name="FILE" class="org.apache.log4j.FileAppender">
-		<param name="File" value="C:/debug.log" />
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 날짜별로 로그를 남김. 파일명.확장자.DatePattern으로 정의 함 -->
+		<param name="File" value="C:/SpringMVC.log" />
 		<param name="Append" value="true" />
+		<param name="DatePattern" value="'-'yyyy-MM-dd" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{HH:mm:ss.SSS}] %-5p %C{1}.%M(%F:%L) - %m%n" />
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] (%F:%L) - %m%n" />
 		</layout>
 	</appender>
 	
 	<logger name="java.sql.Connection" additivity="false">
 		<level value="DEBUG" />
-		<appender-ref ref="FILE" />
 		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
 	</logger>
 
 	<logger name="java.sql.PreparedStatement" additivity="false">
 		<level value="DEBUG" />
-		<appender-ref ref="FILE" />
 		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
 	</logger>
 
 	<logger name="java.sql.ResultSet" additivity="false">
@@ -55,6 +57,6 @@
 	<root>
 		<level value="DEBUG" />
 		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
 	</root>
-	
 </log4j:configuration>
