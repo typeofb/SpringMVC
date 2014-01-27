@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<select id="selLoc">
+<select id="selArea" name="selArea" onchange="fnSelectTag2(this.value);">
 	<c:forEach var="x" items="${result}">
-		<option value="${x.LOC_CD}" <c:if test="${x.LOC_CD eq selected}">selected</c:if>>${x.LOC_NM}</option>
+		<option value="${x.AREA_CD}" <c:if test="${x.AREA_CD eq selected}">selected</c:if>>${x.AREA_NM}</option>
 	</c:forEach>
 </select>

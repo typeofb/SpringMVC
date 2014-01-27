@@ -27,7 +27,7 @@
 				url: "reportAjax.do",
 				data: $("#reportForm").serializeArray(),
 				success: function(data) {
-					document.reportForm.result.value = $("select[id='selLoc'] option:selected").text();
+					document.reportForm.result.value = $("select[id='selArea'] option:selected").text() + ", " + $("select[id='selLoc'] option:selected").text();
 					$("#indexPage").load("reportDetail.do", $("#reportForm").serializeArray());
 				}
 			});
@@ -49,6 +49,19 @@
 			data: $("#reportForm").serializeArray(),
 			success: function(data) {
 				$("#selectTag").html(data);
+				fnSelectTag2();
+			}
+		});
+	}
+	
+	function fnSelectTag2() {
+		$.ajax({
+			type: "POST",
+			url: "reportSelect2.do",
+			data: $("#reportForm").serializeArray(),
+			success: function(data) {
+				$("#selectTag2").html(data);
+				$("#selLoc").val(5570);  // default local
 			}
 		});
 	}
@@ -62,7 +75,10 @@
 		<div>Ajax Move for this body</div>
 		<input type="text" name="txtInput" />
 		<input type="button" id="btnDetail" value="Ajax Proxy" />
-		<div id="selectTag"></div>
+		<div>
+			<span id="selectTag"></span>
+			<span id="selectTag2"></span>
+		</div>
 		<div id="tabMenu">
 			<ul>
 				<li class="on"><span>A Menu</span></li>
