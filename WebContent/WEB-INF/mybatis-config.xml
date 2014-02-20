@@ -14,5 +14,6 @@
 	
 	<mappers>
 		<mapper resource="kr/co/androider/spring3/serviceMgmt/sqlmap/App.xml" />
+		<mapper resource="kr/co/androider/spring3/userMgmt/sqlmap/SmsSend.xml" />
 	</mappers>
 </configuration>

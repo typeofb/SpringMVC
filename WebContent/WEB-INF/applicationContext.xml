@@ -30,4 +30,26 @@
 
 	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" />
 
+
+	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://203.240.135.214:3306/my_schema" />
+		<property name="username" value="bamsadm" />
+		<property name="password" value="ekdma1234" />
+		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+	</bean>
+	
+	<bean id="mysqlSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="mysqlDataSource" />
+		<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+	</bean>
+	
+	<bean id="mysqlSqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="mysqlSqlSessionFactory" />
+	</bean>
+	
+	<bean id="SmsSendDaoImpl" class="kr.co.androider.spring3.userMgmt.dao.SmsSendDaoImpl">
+		<property name="sqlSession" ref="mysqlSqlSessionTemplate" />
+		<qualifier value="kepcoDB" />
+	</bean>
 </beans>
