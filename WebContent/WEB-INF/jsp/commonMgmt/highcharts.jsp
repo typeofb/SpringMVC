@@ -37,7 +37,14 @@ $(document).ready(function(){
 			dateTimeLabelFormats: {
 				minute: '%H:%M',
 				hour: '%H:%M'
-			}
+			},
+			plotLines: [{
+				color: '#ff0000',
+				width: 1
+			}, {
+				color: '#0000ff',
+				width: 1
+			}]
 		},
 		yAxis: {
 			title: {
@@ -118,6 +125,11 @@ $(document).ready(function(){
 			pointInterval: 60 * 1000, // one minute
 			name: '전력',
 			data: []
+		}, {
+			color: '#00ff00',
+			type: 'spline',
+			name: '추정전력',
+			data: []
 		}]
 	});
 });
@@ -125,19 +137,25 @@ $(document).ready(function(){
 $(window).load(function(){
 	areaChart.showLoading();
 	var xAxis = areaChart.get('xAxis');
+	
 	var plots = xAxis['plotLinesAndBands'];
+	var plot = plots[0]['options'];
+	var plot2 = plots[1]['options'];
+	var series = areaChart.series[0];
+	var series2 = areaChart.series[1];
 
 	$.ajax({
 		url : "<c:url value='highchartsAjax.do' />",
 		data: $("#hForm").serializeArray(),
 		success : function(result) {
 			areaChart.hideLoading();
-			var chart = areaChart;
-			chart.setTitle({text: "RMU 전력합계"});
-			//chart.xAxis[0].options.tickInterval = 3600 * 1000;
+			areaChart.setTitle({text: "RMU 전력합계"});
+			
 			var points = JSON.parse(result);
-			var series = chart.series[0];
+			plot['value'] = points.plot;
+			plot2['value'] = points.plot2;
 			series.setData(eval(points.data));
+			series2.setData(eval(points.data2));
 		},
 		cache : false
 	});

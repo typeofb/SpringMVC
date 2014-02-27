@@ -48,8 +48,26 @@ public class HighchartsController {
 		arrayList.add(list3);
 		arrayList.add(list4);
 		arrayList.add(list5);
+		
+		ArrayList<Double> list6 = new ArrayList<Double>();
+		list6.add(1386894608000D);
+		list6.add(927.4590);
+		ArrayList<Double> list7 = new ArrayList<Double>();
+		list7.add(1386894611000D);
+		list7.add(967.8410);
+		ArrayList<Double> list8 = new ArrayList<Double>();
+		list8.add(1386894614000D);
+		list8.add(1000.1660);
+		ArrayList<ArrayList<Double>> arrayList2 = new ArrayList<ArrayList<Double>>();
+		arrayList2.add(list6);
+		arrayList2.add(list7);
+		arrayList2.add(list8);
+		
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("plot", 1386894608000D);
+		map.put("plot2", 1386894614000D);
 		map.put("data", arrayList);
+		map.put("data2", arrayList2);
 		JSONObject jsonObj = new JSONObject(map);
 		
 		response.setContentType("text/html; charset=utf-8");
