@@ -165,3 +165,9 @@ li {list-style:none;}
 	display:block;
 	background:url(../images/btn_back.png) 0px -75px;
 }
+#tabMenu {width:820px; height:530px; border-bottom:2px solid #5c6061;}
+#tabMenu ul {padding:2px 16px 1px; height:27px; font-size:11px; border-bottom:2px solid #5c6061;}
+#tabMenu li {float:left; width:76px; height:27px; display:block; text-align:center; position:relative; border:solid 1px #aaaaaa; border-bottom:none; margin-right:2px;}
+#tabMenu li span {font-weight:bold; color:#666; display:block; left:0; top:0; width:76px; height:27px; line-height:27px; position:absolute; cursor:pointer;}
+#tabMenu li.on span {font-weight:bold; width:76px; background:#5c6061; color:#fff;}
+#tabMenu div {padding:0px 0;}
