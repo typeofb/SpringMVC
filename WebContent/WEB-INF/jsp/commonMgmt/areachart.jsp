@@ -140,7 +140,7 @@ $(window).load(function(){
 	var series2 = areaChart.series[1];
 
 	$.ajax({
-		url : "<c:url value='highchartsAjax.do' />",
+		url : "<c:url value='areachartAjax.do' />",
 		data: $("#hForm").serializeArray(),
 		success : function(result) {
 			areaChart.hideLoading();

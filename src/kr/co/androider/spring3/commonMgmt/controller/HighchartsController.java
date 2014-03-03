@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HighchartsController {
@@ -22,10 +21,9 @@ public class HighchartsController {
 		return "commonMgmt/highcharts";
 	}
 	
-	@RequestMapping("/highchartsAjax")
-	public void highchartsAjax(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam HashMap<Object, Object> param) throws IOException {
-		System.out.println("log - highchartsAjax");
+	@RequestMapping("/areachartAjax")
+	public void areachartAjax(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("log - areachartAjax");
 		
 		ArrayList<Double> list1 = new ArrayList<Double>();
 		list1.add(1386894605000D); // UNIX_TIMESTAMP
@@ -68,6 +66,33 @@ public class HighchartsController {
 		map.put("plot2", 1386894614000D);
 		map.put("data", arrayList);
 		map.put("data2", arrayList2);
+		JSONObject jsonObj = new JSONObject(map);
+		
+		response.setContentType("text/html; charset=utf-8");
+	    PrintWriter out = response.getWriter();
+		out.print(jsonObj);
+	}
+	
+	@RequestMapping("/piechartAjax")
+	public void piechartAjax(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("log - piechartAjax");
+		
+		ArrayList<Object> list1 = new ArrayList<Object>();
+		list1.add("냉방");
+		list1.add(27);
+		ArrayList<Object> list2 = new ArrayList<Object>();
+		list2.add("난방");
+		list2.add(0);
+		ArrayList<Object> list3 = new ArrayList<Object>();
+		list3.add("냉난방");
+		list3.add(220);
+		ArrayList<ArrayList<Object>> arrayList = new ArrayList<ArrayList<Object>>();
+		arrayList.add(list1);
+		arrayList.add(list2);
+		arrayList.add(list3);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("data", arrayList);
 		JSONObject jsonObj = new JSONObject(map);
 		
 		response.setContentType("text/html; charset=utf-8");

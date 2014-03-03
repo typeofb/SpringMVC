@@ -27,6 +27,7 @@ $(document).ready(function(){
 });
 </script>
 <%@ include file="areachart.jsp"%>
+<%@ include file="piechart.jsp"%>
 
 <form id="hForm" name="hForm" method="post">
 	<input type="hidden" id="token" name="token" value="${sessionScope.token}" />
