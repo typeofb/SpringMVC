@@ -9,7 +9,7 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="kr.co.androider.spring3.serviceMgmt.vo.AppVO" alias="AppVO"/>
+		<typeAlias type="kr.co.androider.spring3.serviceMgmt.vo.AppVo" alias="AppVo"/>
 	</typeAliases>
 	
 	<mappers>

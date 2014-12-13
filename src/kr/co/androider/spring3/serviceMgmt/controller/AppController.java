@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import kr.co.androider.spring3.serviceMgmt.dao.AppDao;
-import kr.co.androider.spring3.serviceMgmt.vo.AppVO;
+import kr.co.androider.spring3.serviceMgmt.vo.AppVo;
 
 import org.apache.log4j.Logger;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -44,7 +44,7 @@ public class AppController extends SqlSessionDaoSupport {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("appPkgName", "com.lge.lglink.group");
 		map.put("appName", "Link Group");
-		List<AppVO> list = appDao.retrieveApp(map);
+		List<AppVo> list = appDao.retrieveApp(map);
 		for (int i = 0; i < list.size(); i++) {
 			logger.debug(list.get(i).getAppId());
 			logger.debug(list.get(i).getAppPkgName());
@@ -53,7 +53,7 @@ public class AppController extends SqlSessionDaoSupport {
 
 		try {
 			// INSERT
-			AppVO talkData = new AppVO();
+			AppVo talkData = new AppVo();
 			talkData.setAppId(UUID.randomUUID().toString());
 			talkData.setAppName("Link Talk");
 			talkData.setAppPkgName("com.lge.lglink.talk");
@@ -65,7 +65,7 @@ public class AppController extends SqlSessionDaoSupport {
 			appDao.createApp(talkData);
 
 			// INSERT
-			AppVO talkData2 = new AppVO();
+			AppVo talkData2 = new AppVo();
 			talkData2.setAppId(null);	// "APP_ID" NOT NULL
 			talkData2.setAppName("Link Talk");
 			talkData2.setAppPkgName("com.lge.lglink.talk");

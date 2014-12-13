@@ -1,7 +1,7 @@
 package kr.co.androider.spring3.common.vo;
 
 
-public class LoginVO {
+public class LoginVo {
 
     private String username;
     private String password;

@@ -1,8 +1,8 @@
 package kr.co.androider.spring3.common.vo;
 
-public class NavigatorVO {
+public class NavigatorVo {
 	
-	public NavigatorVO() {}
+	public NavigatorVo() {}
 	
 	private int menuId;
 	private String menuName;

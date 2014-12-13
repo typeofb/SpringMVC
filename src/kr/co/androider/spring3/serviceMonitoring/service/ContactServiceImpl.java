@@ -1,6 +1,6 @@
 package kr.co.androider.spring3.serviceMonitoring.service;
 
-import kr.co.androider.spring3.serviceMonitoring.vo.ContactVO;
+import kr.co.androider.spring3.serviceMonitoring.vo.ContactVo;
 
 import org.springframework.stereotype.Service;
 
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 public class ContactServiceImpl implements IContactService {
 
     @Override
-    public ContactVO changeInfo(ContactVO ContactVO){
+    public ContactVo changeInfo(ContactVo ContactVo){
         
-        String strManipulated = ContactVO.getFirstname() + " is checked";
-        ContactVO.setFirstname(strManipulated);
+        String strManipulated = ContactVo.getFirstname() + " is checked";
+        ContactVo.setFirstname(strManipulated);
         
-        return ContactVO;
+        return ContactVo;
     }
 }

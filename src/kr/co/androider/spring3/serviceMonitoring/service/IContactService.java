@@ -1,7 +1,7 @@
 package kr.co.androider.spring3.serviceMonitoring.service;
 
-import kr.co.androider.spring3.serviceMonitoring.vo.ContactVO;
+import kr.co.androider.spring3.serviceMonitoring.vo.ContactVo;
 
 public interface IContactService {
-    public ContactVO changeInfo(ContactVO ContactVO);
+    public ContactVo changeInfo(ContactVo ContactVo);
 }
