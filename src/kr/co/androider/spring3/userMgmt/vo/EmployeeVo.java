@@ -1,6 +1,6 @@
 package kr.co.androider.spring3.userMgmt.vo;
 
-public class EmployeeVO {
+public class EmployeeVo {
 	
 	private String name;
 	private String password;

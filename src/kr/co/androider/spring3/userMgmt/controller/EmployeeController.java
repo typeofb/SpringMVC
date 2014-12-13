@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.androider.spring3.userMgmt.vo.EmployeeVO;
+import kr.co.androider.spring3.userMgmt.vo.EmployeeVo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,13 +28,13 @@ public class EmployeeController {
 	
 	@RequestMapping("/employee")
 	public ModelAndView employee() {
-		return new ModelAndView("userMgmt/employee", "employeeCommand", new EmployeeVO());
+		return new ModelAndView("userMgmt/employee", "employeeCommand", new EmployeeVo());
 	}
 	
 	@RequestMapping("/saveEmployee")
 	public void saveEmployee(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam HashMap<Object, Object> param,
-			@ModelAttribute("employee") EmployeeVO employee,
+			@ModelAttribute("employee") EmployeeVo employee,
 			BindingResult bindingResult, Model model) throws IOException {
 
 		System.out.println("log - employee");
