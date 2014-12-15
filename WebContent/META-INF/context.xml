@@ -3,7 +3,6 @@
 	<Resource name="jdbc/appManDB"
 		auth="Container"
 		type="javax.sql.DataSource"
-		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
 		driverClassName="com.ibm.db2.jcc.DB2Driver"
 		url="jdbc:db2://107.21.27.248:51001/CPMTEST:retrieveMessagesFromServerOnGetMessage=true;currentSchema=CPM_MGR;"
 		username="cpm_app"
