@@ -4,7 +4,7 @@
 <mapper namespace="user">
 	<select id="selectUser" parameterType="int" resultType="hashmap">
 		<![CDATA[
-		SELECT * FROM USR_INFO_T WHERE USRGRD_CD = #{int}
+		SHOW DATABASES
 		]]>
 	</select>
 </mapper>

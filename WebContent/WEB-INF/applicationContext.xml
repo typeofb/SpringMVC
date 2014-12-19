@@ -33,9 +33,9 @@
 
 	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://203.240.135.214:3306/my_schema" />
-		<property name="username" value="bamsadm" />
-		<property name="password" value="ekdma1234" />
+		<property name="url" value="jdbc:mysql://116.124.245.114:3306/test" />
+		<property name="username" value="rcms" />
+		<property name="password" value="rcms12#$" />
 		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
 	</bean>
 	
