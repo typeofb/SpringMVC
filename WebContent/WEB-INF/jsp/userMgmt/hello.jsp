@@ -79,6 +79,7 @@
 	}
 </script>
 
+<div>${user}</div>
 <div>${message}</div>
 <h2>File Upload</h2>
 <form id="uploadForm" method="post">

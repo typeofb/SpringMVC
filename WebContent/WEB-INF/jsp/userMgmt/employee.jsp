@@ -26,6 +26,7 @@
 	}
 </script>
 
+<div>${user}</div>
 <form:form commandName="employeeCommand" action="saveEmployee.do">
 	<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 	<table>
