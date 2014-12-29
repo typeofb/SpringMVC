@@ -14,8 +14,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.androider.spring3.common.controller.UserController;
-
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
@@ -26,7 +24,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HelloWorldController extends UserController {
+public class HelloWorldController {
 
 	@RequestMapping("/hello")
 	public ModelAndView helloWorld() {

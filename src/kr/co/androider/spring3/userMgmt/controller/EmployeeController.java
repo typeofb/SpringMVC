@@ -8,7 +8,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.androider.spring3.common.controller.UserController;
 import kr.co.androider.spring3.userMgmt.vo.EmployeeVo;
 
 import org.springframework.stereotype.Controller;
@@ -21,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
 @Controller
-public class EmployeeController extends UserController {
+public class EmployeeController {
 	
 //	@Autowired
 	@Resource(name = "beanValidator")
