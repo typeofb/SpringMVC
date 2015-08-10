@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   SpringSchemaParserUtils.java
 
-package hanwha.hone.runtime.util;
+package kr.co.androider.spring3.util;
 
 import org.springframework.beans.factory.support.BeanDefinitionValidationException;
 import org.springframework.util.Assert;

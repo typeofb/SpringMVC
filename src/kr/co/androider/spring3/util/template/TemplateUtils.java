@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   TemplateUtils.java
 
-package hanwha.hone.runtime.util.template;
+package kr.co.androider.spring3.util.template;
 
 import freemarker.cache.ClassTemplateLoader;
 import freemarker.template.Configuration;
@@ -12,7 +12,7 @@ import java.io.*;
 import java.util.Map;
 import org.springframework.util.StringUtils;
 
-// Referenced classes of package hanwha.hone.runtime.util.template:
+// Referenced classes of package kr.co.androider.spring3.util.template:
 //            TemplateGenerateException
 
 public abstract class TemplateUtils
@@ -50,7 +50,7 @@ public abstract class TemplateUtils
             Class lc = null;
             if(templatePath.startsWith("/"))
             {
-                lc = loaderClass != null ? loaderClass : hanwha.hone.runtime.util.template.TemplateUtils.class;
+                lc = loaderClass != null ? loaderClass : kr.co.androider.spring3.util.template.TemplateUtils.class;
             } else
             {
                 if(loaderClass == null)

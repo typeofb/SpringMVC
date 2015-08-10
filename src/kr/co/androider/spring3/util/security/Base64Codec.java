@@ -3,12 +3,15 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   Base64Codec.java
 
-package hanwha.hone.runtime.util.security;
+package kr.co.androider.spring3.util.security;
 
-import hanwha.hone.runtime.util.StringUtils;
+import kr.co.androider.spring3.util.StringUtils;
+
 import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -93,7 +96,7 @@ public class Base64Codec
             return;
     }
 
-    static Class _mthclass$(String x0)
+    static Class _mthclass$(String x0) throws Throwable
     {
         try
         {
@@ -109,6 +112,6 @@ public class Base64Codec
 
     static 
     {
-        logger = LoggerFactory.getLogger(hanwha.hone.runtime.util.security.Base64Codec.class);
+        logger = LoggerFactory.getLogger(kr.co.androider.spring3.util.security.Base64Codec.class);
     }
 }

@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   XmlUtils.java
 
-package hanwha.hone.runtime.util;
+package kr.co.androider.spring3.util;
 
 import java.io.IOException;
 import java.io.StringReader;

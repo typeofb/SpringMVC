@@ -3,12 +3,12 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   StringUtils.java
 
-package hanwha.hone.runtime.util;
+package kr.co.androider.spring3.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-// Referenced classes of package hanwha.hone.runtime.util:
+// Referenced classes of package kr.co.androider.spring3.util:
 //            FormattingUtils
 
 public class StringUtils extends org.springframework.util.StringUtils
@@ -161,17 +161,17 @@ public class StringUtils extends org.springframework.util.StringUtils
         return result;
     }
 
-    public static boolean isForwardContinousLetter(String target, int permissableCount)
+    public static boolean isForwardContinuousLetter(String target, int permissableCount)
     {
-        return isContinousLetter(target, permissableCount, true);
+        return isContinuousLetter(target, permissableCount, true);
     }
 
-    public static boolean isBackwardContinousLetter(String target, int permissableCount)
+    public static boolean isBackwardContinuousLetter(String target, int permissableCount)
     {
-        return isContinousLetter(target, permissableCount, false);
+        return isContinuousLetter(target, permissableCount, false);
     }
 
-    public static boolean isContinousLetter(String target, int permissableCount, boolean isForward)
+    public static boolean isContinuousLetter(String target, int permissableCount, boolean isForward)
     {
         if(!hasText(target))
             return false;

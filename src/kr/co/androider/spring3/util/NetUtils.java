@@ -3,12 +3,12 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   NetUtils.java
 
-package hanwha.hone.runtime.util;
+package kr.co.androider.spring3.util;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-// Referenced classes of package hanwha.hone.runtime.util:
+// Referenced classes of package kr.co.androider.spring3.util:
 //            FormattingUtils
 
 public abstract class NetUtils

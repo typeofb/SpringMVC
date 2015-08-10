@@ -3,14 +3,14 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   StringValidateUtils.java
 
-package hanwha.hone.runtime.util;
+package kr.co.androider.spring3.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-// Referenced classes of package hanwha.hone.runtime.util:
+// Referenced classes of package kr.co.androider.spring3.util:
 //            StringUtils, NumberUtils
 
 public class StringValidateUtils

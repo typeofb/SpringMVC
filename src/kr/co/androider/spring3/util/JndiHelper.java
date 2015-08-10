@@ -3,10 +3,12 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   JndiHelper.java
 
-package hanwha.hone.runtime.util;
+package kr.co.androider.spring3.util;
 
 import java.util.Hashtable;
+
 import javax.naming.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,7 +83,7 @@ public class JndiHelper
         return object;
     }
 
-    static Class _mthclass$(String x0)
+    static Class _mthclass$(String x0) throws Throwable
     {
         try
         {
@@ -97,6 +99,6 @@ public class JndiHelper
 
     static 
     {
-        logger = LoggerFactory.getLogger(hanwha.hone.runtime.util.JndiHelper.class);
+        logger = LoggerFactory.getLogger(kr.co.androider.spring3.util.JndiHelper.class);
     }
 }

@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   SecurityUtils.java
 
-package hanwha.hone.runtime.util;
+package kr.co.androider.spring3.util;
 
 import edu.emory.mathcs.backport.java.util.Arrays;
 import org.springframework.security.Authentication;
@@ -12,7 +12,7 @@ import org.springframework.security.context.SecurityContext;
 import org.springframework.security.context.SecurityContextHolder;
 import org.springframework.security.userdetails.UserDetails;
 
-// Referenced classes of package hanwha.hone.runtime.util:
+// Referenced classes of package kr.co.androider.spring3.util:
 //            StringUtils
 
 public abstract class SecurityUtils
