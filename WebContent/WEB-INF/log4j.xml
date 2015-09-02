@@ -19,7 +19,7 @@
 			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] (%F:%L) - %m%n" />
 		</layout>
 	</appender>
-	
+
 	<logger name="java.sql.Connection" additivity="false">
 		<level value="DEBUG" />
 		<appender-ref ref="CONSOLE" />
@@ -43,20 +43,61 @@
 	</logger>
 
 	<logger name="kr.co.androider.spring3.*" additivity="false">
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="CONSOLE" />
 	</logger>
 
 	<!-- Spring Framework Log -->
-	<logger name="org.springframework.web" additivity="false">
-		<level value="INFO" />
+	<logger name="org.springframework.core" additivity="false">
+		<level value="WARN" />
 		<appender-ref ref="CONSOLE" />
 	</logger>
-	
+
+	<logger name="org.springframework.beans" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.context" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.web" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.transaction" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.orm.jpa" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.web.servlet.mvc.annotation" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<!-- Apache Tiles -->
+	<logger name="org.apache.tiles" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.apache.commons" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
 	<!-- Root -->
 	<root>
 		<level value="DEBUG" />
 		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="FILE" />
+		<!-- <appender-ref ref="FILE" /> -->
 	</root>
 </log4j:configuration>
