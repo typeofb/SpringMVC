@@ -1,5 +1,6 @@
 package kr.co.androider.spring3.commonMgmt.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -155,11 +156,24 @@ public class ReportController {
 			StringBuilder strData = new StringBuilder();
 //			InputStream is = url.openStream();
 			InputStream is = httpConnection.getInputStream();
-			Reader r = new InputStreamReader(is, "UTF-8");
-			int data = 0;
-			while ((data = r.read()) != -1) {
-				strData.append((char) data);
+			// Reader 계 클래스
+//			Reader r = new InputStreamReader(is, "UTF-8");
+//			int data = 0;
+//			while ((data = r.read()) != -1) {
+//				strData.append((char) data);
+//			}
+			// OutputStream 계 클래스
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			int byteRead = 0;
+			byte[] buffer = new byte[1024];
+			while ((byteRead = is.read(buffer)) != -1) {
+				baos.write(buffer, 0, byteRead);
 			}
+			if (baos != null) try {baos.close();} catch (IOException e) {}
+			if (is != null) try {is.close();} catch (IOException e) {}
+			
+			String str = new String(baos.toByteArray(), "UTF-8");
+			strData.append(str);
 			
 			String[] explode = String.valueOf(strData).split("<select name=\"query\">");
 			explode = explode[1].split("</select>");
