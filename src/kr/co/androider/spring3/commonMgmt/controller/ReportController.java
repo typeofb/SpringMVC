@@ -2,9 +2,15 @@ package kr.co.androider.spring3.commonMgmt.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -141,31 +147,37 @@ public class ReportController {
 			@RequestParam(value="value", required=true) String value) throws HttpException, IOException {
 		System.out.println(value);
 		
-		String url = "http://www.e-kepco.co.kr/WEATHER/AREA_HQ_MINIWEATHER/tot.php?gubun=" + value;
-		HttpClient client = new HttpClient();
-		PostMethod method = new PostMethod(url);
-		/*
-		NameValuePair[] postParams = {
-				new NameValuePair("areaCode", value),
-				new NameValuePair("groupCode", "G03")
-		};
-		method.setRequestBody(postParams);
-		*/
-		int statusCode = client.executeMethod(method);
+		URL url = new URL("http://www.naver.com");
+		HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+		int statusCode = httpConnection.getResponseCode();
 		
 		if (statusCode == HttpStatus.SC_OK) {
 			StringBuilder strData = new StringBuilder();
-			InputStream is = method.getResponseBodyAsStream();
-			while (true) {
-				int data = is.read();
-				if (data == -1) {
-					break;
-				}
-				strData.append((char)data);
+//			InputStream is = url.openStream();
+			InputStream is = httpConnection.getInputStream();
+			Reader r = new InputStreamReader(is, "UTF-8");
+			int data = 0;
+			while ((data = r.read()) != -1) {
+				strData.append((char) data);
 			}
+			
+			String[] explode = String.valueOf(strData).split("<select name=\"query\">");
+			explode = explode[1].split("</select>");
+			
+			Pattern pattern = Pattern.compile("<option value=\"(.*?)\">(.*?)</option>", Pattern.DOTALL);
+			Matcher matcher = pattern.matcher(explode[0]);
+			
+			StringBuffer returnValue = new StringBuffer();
+			returnValue.append("<div>네이버 실시간 검색어 순위</div>");
+			returnValue.append("<table>");
+			while (matcher.find()) {
+				returnValue.append("<tr><td>" + matcher.group(2) + "</td></tr>"); // select option text
+			}
+			returnValue.append("</table>");
+			
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println(strData.toString());
+			out.println(returnValue);
 			out.flush();
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
