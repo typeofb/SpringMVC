@@ -28,8 +28,8 @@ public class ContactController {
     	
         logger.info("console - debug level /contact! ");
         
-        // 토큰 생성
-//        saveToken.setToken(request);
+        // 토큰 생성 - Cross-Site Request Forgery(CSRF)
+        saveToken.setToken(request);
         
         return new ModelAndView("serviceMonitoring/contact", "command", new ContactVo());
     }
@@ -39,14 +39,14 @@ public class ContactController {
         
     	logger.info("console - debug level /addContact! ");
     	
-        // 토큰 비교
-        if (saveToken.isValid(request, response)) {
-        	logger.debug("true");
-    	} else {
-    		logger.debug("false");
-//    		return new ModelAndView("forward:/contact.do");
-        	return new ModelAndView("redirect:/");
-    	}
+        // 토큰 비교 - LoginSessionCheckInterceptor preHandle에서 처리
+//        if (saveToken.isValid(request, response)) {
+//        	logger.debug("true");
+//    	} else {
+//    		logger.debug("false");
+////    		return new ModelAndView("forward:/contact.do");
+//        	return new ModelAndView("redirect:/");
+//    	}
         
         ContactVo contact = new ContactVo();
         contact = iContactService.changeInfo(ContactVo);
