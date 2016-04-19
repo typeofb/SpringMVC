@@ -35,10 +35,10 @@ public class AppController extends SqlSessionDaoSupport {
 
 		AppDao appDao = getSqlSession().getMapper(AppDao.class);
 
-		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-		def.setName("app-transaction");
-		def.setPropagationBehavior(DefaultTransactionDefinition.PROPAGATION_REQUIRED);
-		TransactionStatus status = txManager.getTransaction(def);
+//		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+//		def.setName("app-transaction");
+//		def.setPropagationBehavior(DefaultTransactionDefinition.PROPAGATION_REQUIRED);
+//		TransactionStatus status = txManager.getTransaction(def);
 
 		// SELECT
 		Map<String, String> map = new HashMap<String, String>();
@@ -75,9 +75,10 @@ public class AppController extends SqlSessionDaoSupport {
 			talkData2.setGenUsrId("cpmappuser");
 			talkData2.setLastChgUsrId("cpmappadmin");
 			appDao.createApp(talkData2);
-			txManager.commit(status);
+//			txManager.commit(status);
 		} catch (Exception e) {
-			txManager.rollback(status);
+			System.out.println("%%%%%%%%%% Transaction Error: " + e);
+//			txManager.rollback(status);
 		}
 
 		ModelAndView mv = new ModelAndView();
