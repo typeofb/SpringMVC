@@ -25,8 +25,8 @@ public class AppController extends SqlSessionDaoSupport {
 
 	private Logger logger = Logger.getLogger(getClass());
 
-	@Autowired
-	DataSourceTransactionManager txManager;
+//	@Autowired
+//	DataSourceTransactionManager txManager;
 
 	@RequestMapping("/app")
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
