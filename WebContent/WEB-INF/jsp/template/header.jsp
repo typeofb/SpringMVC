@@ -7,7 +7,7 @@
 					document.headerForm.action = "navigator.do";
 					document.headerForm.submit();
 				}
-			
+				
 				function fnMenuToggle(obj) { }
 				
 				function fnLogout() {
