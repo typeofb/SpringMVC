@@ -15,7 +15,7 @@
 				
 				<ul id="sidebar">
 					<c:forEach items="${sidebar}" var="sidebarEntry">
-						<li><a href="javascript:;" onclick="fnMovePage('${sidebarEntry.menuId}', '${sidebarEntry.parentMenuId}'); return false;">${sidebarEntry.menuName}</a></li>
+						<li><a href="javascript:;" onclick="fnMovePage('${sidebarEntry.menuId}', '${sidebarEntry.parentMenuId}');">${sidebarEntry.menuName}</a></li>
 					</c:forEach>
 				</ul>
 			</form>
