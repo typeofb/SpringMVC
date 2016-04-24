@@ -14,14 +14,14 @@ function fnSubmit() {
 	<table>
 		<tr>
 			<td><label>Username</label></td>
-			<td><input name="username" value="typeofb" /></td>
+			<td><input name="username" value="typeofb"></td>
 		</tr>
 		<tr>
 			<td><label>Password</label></td>
-			<td><input name="password" type="password" /></td>
+			<td><input name="password" type="password" value="1234"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Login" /></td>
+			<td><input type="submit" value="Login"></td>
 		</tr>
 	</table>
 </form>
