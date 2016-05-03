@@ -13,7 +13,7 @@ function fnSubmit() {
 }
 </script>
 <h2>Contact Manager</h2>
-<form:form id="contactForm" method="post" action="addContact.do">
+<form:form id="contactForm">
 	<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 	<table>
 		<tr>
@@ -31,6 +31,23 @@ function fnSubmit() {
 		<tr>
 			<td><form:label path="lastname">Telephone</form:label></td>
 			<td><form:input path="telephone" /></td>
+		</tr>
+		<tr>
+			<td>체크박스</td>
+			<td><form:checkboxes path="hobbies" items="${hobbyList}" /></td>
+		</tr>
+		<tr>
+			<td>라디오버튼</td>
+			<td><form:radiobuttons path="hobbies" items="${hobbyList}" /></td>
+		</tr>
+		<tr>
+			<td>셀렉트태그</td>
+			<td>
+				<form:select path="country">
+					<form:option value="NONE" label="--- Select ---" />
+					<form:options items="${countryList}" />
+				</form:select>
+			</td>
 		</tr>
 	</table>
 	<div class="btn"><a class="btnB" href="javascript:;" onclick="fnSubmit();"><span>Add Contact</span></a></div>
