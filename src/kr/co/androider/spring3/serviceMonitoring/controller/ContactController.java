@@ -29,7 +29,7 @@ public class ContactController {
     private IContactService iContactService;
     
     @RequestMapping("/contact")
-    public String showContact(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+    public String showContact(@ModelAttribute("contact") ContactVo contactVo, ModelMap modelMap, HttpServletRequest request) {
     	
         logger.info("console - debug level /contact! ");
         
@@ -43,7 +43,6 @@ public class ContactController {
         hobby.add("기타");
         modelMap.put("hobbyList", hobby);
         
-        ContactVo contactVo = new ContactVo();
         List<String> hobbyDefault = new ArrayList<String>();
         hobbyDefault.add("헬스");
         hobbyDefault.add("자전거");
@@ -58,13 +57,11 @@ public class ContactController {
         
         contactVo.setCountry("SG");
         
-        modelMap.put("command", contactVo);
-        
         return "serviceMonitoring/contact";
     }
     
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
-    public String addContact(@ModelAttribute("contact") ContactVo contactVo, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+    public String addContact(@ModelAttribute("contact") ContactVo contactVo) {
         
     	logger.info("console - debug level /addContact! ");
     	
@@ -77,10 +74,7 @@ public class ContactController {
 //        	return new ModelAndView("redirect:/");
 //    	}
         
-        ContactVo contact = new ContactVo();
-        contact = iContactService.changeInfo(contactVo);
-        
-        modelMap.put("command", contact);
+    	contactVo = iContactService.changeInfo(contactVo);
         
         return "serviceMonitoring/addContact";
     }

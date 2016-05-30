@@ -13,7 +13,7 @@ function fnSubmit() {
 }
 </script>
 <h2>Contact Manager</h2>
-<form:form id="contactForm">
+<form:form id="contactForm" commandName="contact">
 	<input type="hidden" name="token" value="<%= session.getAttribute("token") %>" />
 	<table>
 		<tr>
