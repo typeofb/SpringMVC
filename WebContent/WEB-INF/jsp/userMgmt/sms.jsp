@@ -157,3 +157,53 @@ function send() {
 		<table id="tblSend"></table>
 	</div>
 </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style type="text/css">
+	.on {background-color:#737b84; color:#fff;}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".move").click(function() {
+		var mode = $(this).attr("class") == "move up" ? "up" : "down";
+		
+		$("td a").each(function() {
+			if ($(this).attr("class") == "on") {
+				var element = $(this).closest("tr");
+				
+				if (mode == "up" && element.prev().html() != null) {
+					element.insertBefore(element.prev());
+				} else if (mode == "down" && element.next().html() != null) {
+					element.insertAfter(element.next());
+				}
+			}
+		});
+	});
+	$("td a").click(function() {
+		$("td a").removeClass("on");
+		$(this).addClass("on");
+	});
+});
+</script>
+<div>테이블 행 동적 이동</div>
+<table border="1" cellspacing="0" cellpadding="3" bordercolor="#999999" style="border-collapse:collapse;">
+	<tr>
+		<td><a href="#">첫번째 행</a></td>
+	</tr>
+	<tr>
+		<td><a href="#">두번째 행</a></td>
+	</tr>
+	<tr>
+		<td><a href="#">세번째 행</a></td>
+	</tr>
+</table>
+<button type="button" class="move up">위로</button>
+<button type="button" class="move down">아래로</button>
