@@ -1,8 +1,6 @@
 package kr.co.androider.spring3.serviceMonitoring.controller;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,19 +34,19 @@ public class ContactController {
         // 토큰 생성 - Cross-Site Request Forgery(CSRF)
         saveToken.setToken(request);
         
-        List<String> hobby = new ArrayList<String>();
-        hobby.add("농구");
-        hobby.add("헬스");
-        hobby.add("자전거");
-        hobby.add("기타");
+        Map<String, String> hobby = new LinkedHashMap<String, String>();
+        hobby.put("Basketball", "농구");
+        hobby.put("Health", "헬스");
+        hobby.put("Bicycle", "자전거");
+        hobby.put("Guitar", "기타");
         modelMap.put("hobbyList", hobby);
         
-        List<String> hobbyDefault = new ArrayList<String>();
-        hobbyDefault.add("헬스");
-        hobbyDefault.add("자전거");
+        Map<String, String> hobbyDefault = new LinkedHashMap<String, String>();
+        hobbyDefault.put("Health", "헬스");
+        hobbyDefault.put("Bicycle", "자전거");
         contactVo.setHobbies(hobbyDefault);
         
-        Map<String,String> country = new LinkedHashMap<String,String>();
+        Map<String, String> country = new LinkedHashMap<String, String>();
         country.put("US", "United Stated");
         country.put("CHINA", "China");
         country.put("SG", "Singapore");

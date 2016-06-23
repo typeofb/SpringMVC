@@ -1,6 +1,6 @@
 package kr.co.androider.spring3.serviceMonitoring.vo;
 
-import java.util.List;
+import java.util.Map;
 
 public class ContactVo {
     
@@ -8,7 +8,7 @@ public class ContactVo {
     private String lastname;
     private String email;
     private String telephone;
-    private List<String> hobbies;
+    private Map<String, String> hobbies;
     private String country;
     
     public String getFirstname(){
@@ -43,11 +43,11 @@ public class ContactVo {
         this.telephone = telephone;
     }
     
-    public List<String> getHobbies() {
+    public Map<String, String> getHobbies() {
         return hobbies;
     }
     
-    public void setHobbies(List<String> hobbies) {
+    public void setHobbies(Map<String, String> hobbies) {
         this.hobbies = hobbies;
     }
     
