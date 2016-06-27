@@ -10,6 +10,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,7 +50,7 @@ public class ReportController {
 		HashMap<Object, Object> map3 = new HashMap<Object, Object>();
 		map3.put("AREA_CD", 5500);
 		map3.put("AREA_NM", "부산");
-		ArrayList<HashMap<Object, Object>> list = new ArrayList<HashMap<Object, Object>>();
+		List<Map<Object, Object>> list = new ArrayList<>();
 		list.add(map1);
 		list.add(map2);
 		list.add(map3);
@@ -71,7 +73,7 @@ public class ReportController {
 		HashMap<Object, Object> map1 = new HashMap<Object, Object>();
 		HashMap<Object, Object> map2 = new HashMap<Object, Object>();
 		HashMap<Object, Object> map3 = new HashMap<Object, Object>();
-		ArrayList<HashMap<Object, Object>> list = new ArrayList<HashMap<Object, Object>>();
+		List<Map<Object, Object>> list = new ArrayList<>();
 		if (param.get("selArea").toString().equals("3900")) {
 			map1.put("LOC_CD", 3910);
 			map1.put("LOC_NM", "은평");
