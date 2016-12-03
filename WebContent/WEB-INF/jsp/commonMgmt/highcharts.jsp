@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script src="js/jquery-1.4.3.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="js/highcharts.js"></script>
 <!-- <script src="http://code.highcharts.com/highcharts-more.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script> -->
