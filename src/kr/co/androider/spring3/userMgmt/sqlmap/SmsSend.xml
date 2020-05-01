@@ -4,7 +4,7 @@
 <mapper namespace="user">
 	<select id="selectUser" parameterType="int" resultType="hashmap">
 		<![CDATA[
-		SHOW DATABASES
+		SELECT DISTINCT(owner) FROM all_all_tables
 		]]>
 	</select>
 </mapper>
