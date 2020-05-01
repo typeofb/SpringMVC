@@ -35,8 +35,8 @@
 	<bean id="oracleDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE" />
-		<property name="username" value="kiwoom_advisory" />
-		<property name="password" value="wpslrtm79" />
+		<property name="username" value="hr" />
+		<property name="password" value="1234" />
 		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
 	</bean>
 	
