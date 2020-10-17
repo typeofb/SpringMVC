@@ -40,9 +40,10 @@
 		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
 	</bean>
 	
-	<bean id="mysqlSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="mysqlSqlSessionFactory" class="kr.co.androider.spring3.common.controller.RefreshableSqlSessionFactoryBean">
 		<property name="dataSource" ref="oracleDataSource" />
 		<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+		<property name="interval" value="1000" />
 	</bean>
 	
 	<bean id="mysqlSqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
