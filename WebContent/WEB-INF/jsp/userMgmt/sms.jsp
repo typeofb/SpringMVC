@@ -59,18 +59,23 @@ function remove() {
 		var index = $("#selectRcv option").index(this);
 		
 		// input checkbox 추가
-		var html = "";
-		html += "<tr>";
-		html += "<td>";
-		html += "<input type='checkbox' id='chkList' value='Y' />";
-		html += "<input type='hidden' id='USR_ID_List' value='" + $(this).val() + "' />";
-		html += "<input type='hidden' id='USR_NM_List' value='" + $(this).text() + "' />";
-		html += "</td>";
-		html += "<td>";
-		html += $(this).text();
-		html += "</td>";
-		html += "</tr>";
-		$("#tblList").append(html);
+		var html = document.querySelector("#template-list-item").innerHTML;
+		var resultHtml = html.replace("{usr_id}", $(this).val())
+		                     .replace(/{usr_nm}/gi, $(this).text());
+		$("#tblList tbody").append(resultHtml);
+		
+// 		var html = "";
+// 		html += "<tr>";
+// 		html += "<td>";
+// 		html += "<input type='checkbox' id='chkList' value='Y' />";
+// 		html += "<input type='hidden' id='USR_ID_List' value='" + $(this).val() + "' />";
+// 		html += "<input type='hidden' id='USR_NM_List' value='" + $(this).text() + "' />";
+// 		html += "</td>";
+// 		html += "<td>";
+// 		html += $(this).text();
+// 		html += "</td>";
+// 		html += "</tr>";
+// 		$("#tblList").append(html);
 		
 		// hidden값 삭제
 		tblSend.deleteRow(index);
@@ -98,7 +103,16 @@ function send() {
 	});
 }
 </script>
-
+<script type="text/template" id="template-list-item">
+            <tr>
+                <td>
+                    <input type="checkbox" id="chkList" value="Y" />
+                    <input type="hidden" id="USR_ID_List" value="{usr_id}" />
+                    <input type="hidden" id="USR_NM_List" value="{usr_nm}" />
+                </td>
+                <td>{usr_nm}</td>
+            <tr>
+</script>
 <form id="smsForm" name="smsForm">
 	<input type="hidden" name="token" value="${sessionScope.token}" />
 	<div id="leftDiv">
