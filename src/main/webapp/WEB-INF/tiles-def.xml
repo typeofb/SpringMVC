@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="base_layout" template="/WEB-INF/jsp/template/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/template/header.jsp" />
+		<put-attribute name="sidebar" value="/WEB-INF/jsp/template/sidebar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/template/body.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/template/footer.jsp" />
+	</definition>
+
+	<definition name="userMgmt/hello" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/userMgmt/hello.jsp" />
+	</definition>
+	<definition name="serviceMgmt/app" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/serviceMgmt/app.jsp" />
+	</definition>
+	<definition name="serviceMonitoring/contact" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/serviceMonitoring/contact.jsp" />
+	</definition>
+	<definition name="commonMgmt/report" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/commonMgmt/report.jsp" />
+	</definition>
+	<definition name="userMgmt/sms" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/userMgmt/sms.jsp" />
+	</definition>
+	<definition name="userMgmt/employee" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/userMgmt/employee.jsp" />
+	</definition>
+	<definition name="commonMgmt/highcharts" extends="base_layout">
+		<put-attribute name="body" value="/WEB-INF/jsp/commonMgmt/highcharts.jsp" />
+	</definition>
+
+</tiles-definitions>

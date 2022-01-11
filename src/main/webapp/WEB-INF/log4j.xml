@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- 콘솔에 출력되는 형태 정의함. ConversionPattern의 Value에 따라 출력되는 타입이 다름. 파일참조 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss.SSS}] %-5p - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 파일로 출력하는 형태를 정의함 -->
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 날짜별로 로그를 남김. 파일명.확장자.DatePattern으로 정의 함 -->
+		<param name="File" value="C:/SpringMVC.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'-'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5p] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="java.sql.Connection" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="java.sql.PreparedStatement" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<logger name="java.sql.ResultSet" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="com.ibatis.sqlmap.engine.cache.CacheModel" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="kr.co.androider.spring3.*" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<!-- Spring Framework Log -->
+	<logger name="org.springframework.core" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.beans" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.context" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.web" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.transaction" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.orm.jpa" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.springframework.web.servlet.mvc.annotation" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<!-- Apache Tiles -->
+	<logger name="org.apache.tiles" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="org.apache.commons" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<!-- Root -->
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="FILE" /> -->
+	</root>
+</log4j:configuration>
