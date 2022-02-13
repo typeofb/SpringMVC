@@ -27,6 +27,8 @@
 						<li><a href="javascript:fnLogout();">Logout</a></li>
 						<li>&nbsp;|&nbsp;</li>
 						<li><%= session.getAttribute("username") %>님이 로그인 하셨습니다</li>
+						<li>&nbsp;|&nbsp;</li>
+						<li id="theDate"></li>
 					</ul>
 				</div>
 				
@@ -40,3 +42,16 @@
 					</div>
 				</div>
 			</form>
+			
+			<script type="text/javascript">
+			var UnixTimestamp = new Date().getTime() / 1000;
+			console.log('unix timestamp: ' + UnixTimestamp);
+			var TheDate = new Date(UnixTimestamp * 1000);
+			var Result = TheDate.getFullYear() + '/'
+					+ (TheDate.getMonth() + 1).toString().padStart(2, "0") + '/'
+					+ TheDate.getDate().toString().padStart(2, "0") + " "
+					+ TheDate.getHours().toString().padStart(2, "0") + ":"
+					+ TheDate.getMinutes().toString().padStart(2, "0");
+			
+			document.querySelector('#theDate').append(Result);
+			</script>
